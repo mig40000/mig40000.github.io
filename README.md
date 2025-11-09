@@ -1,8 +1,8 @@
-# Fixed site for Dr. Abhishek Tiwari
+Top-tabs theme — wider content
+Files included:
+- index.html (top tabs, wider max-width 1200px)
+- styles.css (modern top-tabs theme)
+- script.js (tabs behavior + hash routing)
 
-This ZIP contains a version of the site with a compact header and reduced profile photo size to improve layout on GitHub Pages previews.
-
-Files:
-- index.html (uses external profile image URL)
-- styles.css (compact header/photo rules)
-- script.js
+To deploy: create a GitHub Pages repo (YOURNAME.github.io), upload these files to root, enable Pages.
+Replace avatar image with local file in assets/ and update index.html if desired.

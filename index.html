@@ -3,88 +3,102 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dr. Abhishek Tiwari — Associate Professor</title>
-  <meta name="description" content="Dr. Abhishek Tiwari — publications, research, teaching, contact." />
+  <title>Dr. Abhishek Tiwari — Modern Top Tabs</title>
+  <meta name="description" content="Dr. Abhishek Tiwari — Associate Professor. Top-tabs layout, wider content." />
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Add (or replace) in <head> -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<meta name="color-scheme" content="light dark">
-
 </head>
 <body>
   <header class="site-header">
-    <div class="wrap header-inner">
-      <div class="brand-with-photo">
-        <a href="#" id="homeLink"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Dr. Abhishek Tiwari" class="header-photo" /></a>
-        <div class="brand-text">
-          <a href="#" id="homeLinkText">Dr. Abhishek Tiwari</a>
-          <div class="subtitle">Associate Professor — Maersk Mc-Kinney Moller Institute, University of Southern Denmark</div>
-        </div>
+    <div class="wrap header-row">
+      <div class="brand">
+        <a href="#" class="brand-link">Dr. Abhishek Tiwari</a>
+        <div class="brand-sub">Associate Professor — Maersk Mc-Kinney Moller Institute, SDU</div>
       </div>
-      <nav class="top-links" aria-label="External links">
-        <a href="https://sites.google.com/view/dr-abhishek-tiwari/home" target="_blank" rel="noopener">Original site</a>
-        <a href="https://dblp.org" target="_blank" rel="noopener">DBLP</a>
-        <a href="https://www.researchgate.net" target="_blank" rel="noopener">ResearchGate</a>
-      </nav>
+      <div class="header-right">
+        <nav class="external-links">
+          <a href="https://sites.google.com/view/dr-abhishek-tiwari/home" target="_blank" rel="noopener">Original</a>
+          <a href="https://dblp.org" target="_blank" rel="noopener">DBLP</a>
+        </nav>
+      </div>
     </div>
+
+    <nav id="tablist" class="top-tabs" role="tablist" aria-label="Main">
+      <button role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" data-target="about">About</button>
+      <button role="tab" id="tab-research" aria-controls="panel-research" aria-selected="false" data-target="research" tabindex="-1">Research</button>
+      <button role="tab" id="tab-pubs" aria-controls="panel-pubs" aria-selected="false" data-target="publications" tabindex="-1">Publications</button>
+      <button role="tab" id="tab-teaching" aria-controls="panel-teaching" aria-selected="false" data-target="teaching" tabindex="-1">Teaching</button>
+      <button role="tab" id="tab-contact" aria-controls="panel-contact" aria-selected="false" data-target="contact" tabindex="-1">Contact</button>
+    </nav>
   </header>
 
-  <main class="wrap">
-    <div class="tabs-wrap">
-      <div id="tablist" role="tablist" aria-label="Main">
-        <button role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" data-target="about">About</button>
-        <button role="tab" id="tab-research" aria-controls="panel-research" aria-selected="false" tabindex="-1" data-target="research">Research</button>
-        <button role="tab" id="tab-pubs" aria-controls="panel-pubs" aria-selected="false" tabindex="-1" data-target="publications">Publications</button>
-        <button role="tab" id="tab-teaching" aria-controls="panel-teaching" aria-selected="false" tabindex="-1" data-target="teaching">Teaching</button>
-        <button role="tab" id="tab-contact" aria-controls="panel-contact" aria-selected="false" tabindex="-1" data-target="contact">Contact</button>
-      </div>
-
-      <section id="panel-about" class="panel" role="tabpanel" aria-labelledby="tab-about">
-        <h1>Dr. Abhishek Tiwari</h1>
-        <p><strong>Associate Professor, Maersk Mc-Kinney Moller Institute, University of Southern Denmark</strong>.</p>
-        <p>Research: static program analyses, program slicing, language-based security, information flow control, Android privacy.</p>
-      </section>
-
-      <section id="panel-research" class="panel" role="tabpanel" aria-labelledby="tab-research" hidden>
-        <h2>Research Interests</h2>
-        <p>Static program analyses, program slicing, information flow security, language-based security, privacy on Android.</p>
-      </section>
-
-      <section id="panel-pubs" class="panel" role="tabpanel" aria-labelledby="tab-pubs" hidden>
-        <h2>Selected Publications</h2>
-        <div class="pub-grid">
-          <article class="pub-card">
-            <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail" loading="lazy"></div>
-            <div class="pub-body">
-              <h3 class="pub-title">Modular Unification (SCP 2025)</h3>
-              <p class="pub-meta"><a href="https://drive.google.com/file/d/16Uw6HLDWqlwZC0ZEtyJYzsPD0GLpbITZ/view?usp=sharing" target="_blank" rel="noopener">Open/Download</a></p>
-              <div class="pub-actions"><a class="btn" href="https://drive.google.com/file/d/16Uw6HLDWqlwZC0ZEtyJYzsPD0GLpbITZ/view?usp=sharing" target="_blank" rel="noopener">Open</a></div>
-            </div>
-          </article>
-          <!-- Additional cards omitted for brevity; link to original site for full list -->
+  <main class="wrap wide">
+    <section id="panel-about" class="panel" role="tabpanel" aria-labelledby="tab-about">
+      <div class="panel-grid">
+        <div class="left">
+          <img class="avatar" src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Dr. Abhishek Tiwari">
         </div>
-        <p class="note">Links point to publicly available PDFs. If you want local PDF hosting, upload PDFs and I will bundle them.</p>
-      </section>
+        <div class="right">
+          <h1>Dr. Abhishek Tiwari</h1>
+          <p><strong>Associate Professor, Maersk Mc-Kinney Moller Institute</strong></p>
+          <p>My research is at the intersection of programming languages and software engineering, focusing on static program analyses, information flow security, and privacy for mobile apps.</p>
+          <p class="quick-links"><a href="#publications">Selected publications</a> · <a href="#contact">Contact</a></p>
+        </div>
+      </div>
+    </section>
 
-      <section id="panel-teaching" class="panel" role="tabpanel" aria-labelledby="tab-teaching" hidden>
-        <h2>Teaching</h2>
-        <ul>
-          <li>Advanced Software Engineering Methodologies — Lecturer</li>
-          <li>Programming Paradigms — Lecturer</li>
-        </ul>
-      </section>
+    <section id="panel-research" class="panel" role="tabpanel" aria-labelledby="tab-research" hidden>
+      <h2>Research Interests</h2>
+      <p>Static analysis, program slicing, language-based security, information flow control, Android privacy, multilingual program analysis.</p>
+      <h3>Projects</h3>
+      <ul>
+        <li>Programming Principles and Abstraction for Privacy</li>
+        <li>SmartPriv</li>
+        <li>SMAPPER</li>
+      </ul>
+    </section>
 
-      <section id="panel-contact" class="panel" role="tabpanel" aria-labelledby="tab-contact" hidden>
-        <h2>Contact</h2>
-        <p>See the original site for contact details.</p>
-      </section>
-    </div>
+    <section id="panel-pubs" class="panel" role="tabpanel" aria-labelledby="tab-pubs" hidden>
+      <h2 id="publications">Selected Publications</h2>
+      <div class="pub-grid">
+        <article class="pub-card">
+          <div class="pub-info">
+            <h3>Modular Unification of Unilingual Pointer Analyses — SCP 2025</h3>
+            <p class="meta"><a href="https://drive.google.com/file/d/16Uw6HLDWqlwZC0ZEtyJYzsPD0GLpbITZ/view?usp=sharing" target="_blank">Open PDF</a></p>
+          </div>
+        </article>
+        <article class="pub-card">
+          <div class="pub-info">
+            <h3>Reproducing Timing-dependent GUI Flaky Tests — ISSTA 2024</h3>
+            <p class="meta"><a href="https://zhendong2050.github.io/res/ISSTA24.pdf" target="_blank">Open PDF</a></p>
+          </div>
+        </article>
+        <article class="pub-card">
+          <div class="pub-info">
+            <h3>HIPPODROME — TOSEM 2022</h3>
+            <p class="meta"><a href="https://ar5iv.org/pdf/2108.02490.pdf" target="_blank">Open PDF</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="panel-teaching" class="panel" role="tabpanel" aria-labelledby="tab-teaching" hidden>
+      <h2>Teaching</h2>
+      <ul>
+        <li>Advanced Software Engineering Methodologies</li>
+        <li>Programming Paradigms</li>
+      </ul>
+    </section>
+
+    <section id="panel-contact" class="panel" role="tabpanel" aria-labelledby="tab-contact" hidden>
+      <h2 id="contact">Contact</h2>
+      <p>See the original site for contact details or email <a href="mailto:you@example.com">you@example.com</a>.</p>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap"><small>&copy; <span id="year"></span> Dr. Abhishek Tiwari — mirrored links from original site</small></div>
+    <div class="wrap">
+      <small>&copy; <span id="year"></span> Dr. Abhishek Tiwari</small>
+    </div>
   </footer>
 
   <script src="script.js"></script>
