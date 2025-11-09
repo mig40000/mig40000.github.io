@@ -4,26 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dr. Abhishek Tiwari — Associate Professor</title>
-  <meta name="description" content="Dr. Abhishek Tiwari — Associate Professor, research in programming languages and software engineering; publications, teaching, contact." />
+  <meta name="description" content="Dr. Abhishek Tiwari — publications, research, teaching, contact." />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
-      <div class="brand">
-        <a href="#" id="homeLink">Dr. Abhishek Tiwari</a>
-        <div class="subtitle">Associate Professor — Maersk Mc-Kinney Moller Institute, University of Southern Denmark</div>
+      <div class="brand-with-photo">
+        <a href="#" id="homeLink"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Dr. Abhishek Tiwari" class="profile-photo header-photo" /></a>
+        <div class="brand-text">
+          <a href="#" id="homeLinkText">Dr. Abhishek Tiwari</a>
+          <div class="subtitle">Associate Professor — Maersk Mc-Kinney Moller Institute, University of Southern Denmark</div>
+        </div>
       </div>
       <nav class="top-links" aria-label="External links">
         <a href="https://sites.google.com/view/dr-abhishek-tiwari/home" target="_blank" rel="noopener">Original site</a>
-        <a href="#" id="link-dblp" rel="noopener">DBLP</a>
-        <a href="#" id="link-rg" rel="noopener">ResearchGate</a>
+        <a href="https://dblp.org" target="_blank" rel="noopener">DBLP</a>
+        <a href="https://www.researchgate.net" target="_blank" rel="noopener">ResearchGate</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <!-- Accessible tablist -->
     <div class="tabs-wrap">
       <div id="tablist" role="tablist" aria-label="Main">
         <button role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" data-target="about">About</button>
@@ -33,46 +35,113 @@
         <button role="tab" id="tab-contact" aria-controls="panel-contact" aria-selected="false" tabindex="-1" data-target="contact">Contact</button>
       </div>
 
-      <!-- Panels -->
       <section id="panel-about" class="panel" role="tabpanel" aria-labelledby="tab-about">
         <h1>Dr. Abhishek Tiwari</h1>
         <p><strong>Associate Professor, Maersk Mc-Kinney Moller Institute, University of Southern Denmark</strong>.</p>
-        <p>My research sits at the intersection of programming languages and software engineering, with a strong focus on static program analyses (program slicing, language-based security, information flow control) and privacy for Android. (Content migrated from original Google Sites.)</p>
-
-        <h3>Education</h3>
-        <ul>
-          <li>PhD, University of Potsdam (Software Engineering Group)</li>
-          <li>MSc, Saarland University</li>
-          <li>B.Tech, SASTRA University</li>
-        </ul>
-
-        <h3>Current & recent positions</h3>
-        <ul>
-          <li>Associate Professor — Maersk Mc-Kinney Moller Institute, SDU Odense.</li>
-          <li>Previous: Senior Researcher (USI Lugano), Senior Researcher (University of Passau), Postdoc (NUS)</li>
-        </ul>
+        <p>Research: static program analyses, program slicing, language-based security, information flow control, Android privacy.</p>
       </section>
 
       <section id="panel-research" class="panel" role="tabpanel" aria-labelledby="tab-research" hidden>
         <h2>Research Interests</h2>
-        <p>Static program analyses, program slicing, information flow security, language-based security, privacy on Android, multilingual program analysis, automated repair.</p>
-
-        <h3>Recent projects</h3>
-        <ul>
-          <li>Programming Principles and Abstraction for Privacy (DFG project)</li>
-          <li>SmartPriv</li>
-          <li>SMAPPER</li>
-        </ul>
+        <p>Static program analyses, program slicing, information flow security, language-based security, privacy on Android.</p>
       </section>
 
       <section id="panel-pubs" class="panel" role="tabpanel" aria-labelledby="tab-pubs" hidden>
-        <h2>Selected Publications (highlights)</h2>
-        <ul>
-          <li><strong>2025</strong> — Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-Based Programs. (Science of Computer Programming)</li>
-          <li><strong>2024</strong> — Reproducing Timing-dependent GUI Flaky Tests in Android Apps (ISSTA 2024)</li>
-          <li><strong>2023</strong> — Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps (ISSRE)</li>
-        </ul>
-        <p>For a full list of publications and PDFs, please see the original site linked above.</p>
+        <h2>Selected Publications</h2>
+        <div class="pub-grid">
+  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for Modular Unification (SCP 2025)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">Modular Unification (SCP 2025)</h3>
+        <p class="pub-meta"><a href="https://drive.google.com/file/d/16Uw6HLDWqlwZC0ZEtyJYzsPD0GLpbITZ/view?usp=sharing" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://drive.google.com/file/d/16Uw6HLDWqlwZC0ZEtyJYzsPD0GLpbITZ/view?usp=sharing" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for Reproducing Timing-Dependent GUI Flaky Tests (ISSTA 2024)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">Reproducing Timing-Dependent GUI Flaky Tests (ISSTA 2024)</h3>
+        <p class="pub-meta"><a href="https://zhendong2050.github.io/res/ISSTA24.pdf" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://zhendong2050.github.io/res/ISSTA24.pdf" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for Automated Repair of Information Flow Security (FM 2024)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">Automated Repair of Information Flow Security (FM 2024)</h3>
+        <p class="pub-meta"><a href="https://bugcounting.net" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://bugcounting.net" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for Challenges of Multilingual Program Specification (ISoLA 2024)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">Challenges of Multilingual Program Specification (ISoLA 2024)</h3>
+        <p class="pub-meta"><a href="https://ar5iv.org/pdf/2407.11661" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://ar5iv.org/pdf/2407.11661" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for Demand-driven Info Flow (ISSRE 2023)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">Demand-driven Info Flow (ISSRE 2023)</h3>
+        <p class="pub-meta"><a href="https://drive.google.com/file/d/1Am2bu_Y0LTn0hXanBzGISgIaIk9LTGLH/view?usp=sharing" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://drive.google.com/file/d/1Am2bu_Y0LTn0hXanBzGISgIaIk9LTGLH/view?usp=sharing" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for Understanding the Impact of Fingerprinting (MOBILESoft 2023)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">Understanding the Impact of Fingerprinting (MOBILESoft 2023)</h3>
+        <p class="pub-meta"><a href="https://drive.google.com/file/d/1IUc9EksQZAWB0uUlZfN13WJpMmn_zK4I/view?usp=share_link" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://drive.google.com/file/d/1IUc9EksQZAWB0uUlZfN13WJpMmn_zK4I/view?usp=share_link" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for HIPPODROME (TOSEM 2022)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">HIPPODROME (TOSEM 2022)</h3>
+        <p class="pub-meta"><a href="https://ar5iv.org/pdf/2108.02490.pdf" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://ar5iv.org/pdf/2108.02490.pdf" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for Flaky Test Detection (ESEC/FSE 2021)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">Flaky Test Detection (ESEC/FSE 2021)</h3>
+        <p class="pub-meta"><a href="https://www.comp.nus.edu.sg/~abhik/pdf/FSE21.pdf" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://www.comp.nus.edu.sg/~abhik/pdf/FSE21.pdf" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for A Large Scale Analysis of Android-Web Hybridization (JSS 2020)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">A Large Scale Analysis of Android-Web Hybridization (JSS 2020)</h3>
+        <p class="pub-meta"><a href="https://ar5iv.org/pdf/2008.01725.pdf" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://ar5iv.org/pdf/2008.01725.pdf" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>  <article class="pub-card">
+      <div class="pub-thumb"><img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcKyWPZp_nGor5p40xeRLLcMtYINS9-1EOspnQU_pY-5fdYRoxglU04KnRDFkMurh-gT3lPTCVy-T1I-RljigekOD-vDHXk5SSeoqZsPG0ga53NhLFXqVBdIFmJxlOE7nB2cZXH8V3dtqlMfJIwc8MU5xeYrvxChBCH8y90WZLu1JvEdf3znU6Lji8mwCs_esnn4sD7A3x9=w1280" alt="Thumbnail for IIFA (2019)" loading="lazy"></div>
+      <div class="pub-body">
+        <h3 class="pub-title">IIFA (2019)</h3>
+        <p class="pub-meta"><a href="https://drive.google.com/file/d/1NHYIEym-uR08IOa2wgesi9YLOEU3ozbI/view?usp=sharing" target="_blank" rel="noopener">Open/Download</a></p>
+        <div class="pub-actions">
+          <a class="btn" href="https://drive.google.com/file/d/1NHYIEym-uR08IOa2wgesi9YLOEU3ozbI/view?usp=sharing" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>
+        </div>
+        <p class="note">These links point to the publicly available PDFs on the web (Google Drive / arXiv / conference pages). If you'd like the PDF files bundled into the site (hosted locally), upload them and I will re-package the ZIP with the actual files.</p>
       </section>
 
       <section id="panel-teaching" class="panel" role="tabpanel" aria-labelledby="tab-teaching" hidden>
@@ -80,22 +149,18 @@
         <ul>
           <li>Advanced Software Engineering Methodologies — Lecturer</li>
           <li>Programming Paradigms — Lecturer</li>
-          <li>Automated Program Repair — Lecturer</li>
         </ul>
       </section>
 
       <section id="panel-contact" class="panel" role="tabpanel" aria-labelledby="tab-contact" hidden>
         <h2>Contact</h2>
-        <p>If you want to contact Dr. Tiwari, please use the contact details on the original site.</p>
-        <p><a href="mailto:you@example.com">you@example.com</a> (replace with actual email)</p>
+        <p>See the original site for contact details.</p>
       </section>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <small>&copy; <span id="year"></span> Dr. Abhishek Tiwari — mirrored content from original site · Hosted on GitHub Pages</small>
-    </div>
+    <div class="wrap"><small>&copy; <span id="year"></span> Dr. Abhishek Tiwari — mirrored links from original site</small></div>
   </footer>
 
   <script src="script.js"></script>

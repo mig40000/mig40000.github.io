@@ -1,22 +1,12 @@
-# dr-abhishek-tiwari — GitHub Pages version
+# Site (links-based) for Dr. Abhishek Tiwari
 
-This repository contains a simple, accessible tabbed website version of the original Google Sites page (mirrored content).
+This package contains a GitHub Pages-ready site where profile photo and paper links point to the original publicly hosted URLs (Google Drive, arXiv, conference pages).
 
-## Files
-- `index.html` — main site (About, Research, Publications, Teaching, Contact)
-- `styles.css` — styling
-- `script.js` — accessible tab behavior + hash routing
-- `assets/` — place for PDFs, images, etc.
+Files:
+- index.html
+- styles.css
+- script.js
 
-## How to deploy on GitHub Pages
-1. Create a new GitHub repository named `YOUR_USERNAME.github.io` (replace YOUR_USERNAME).
-2. Upload these files to the repository root (or use `/docs`).
-3. In the repo Settings → Pages, choose branch `main` and folder `/ (root)`.
-4. After a minute, the site will be available at `https://YOUR_USERNAME.github.io`.
-
-## Notes
-- Replace placeholder links and email in `index.html` with actual URLs.
-- Put PDFs and images inside the `assets/` folder and reference them from the HTML.
-- To embed this site in Google Sites, use the Embed → URL option with `https://YOUR_USERNAME.github.io`.
-
-Source content was migrated from the original Google Sites page: https://sites.google.com/view/dr-abhishek-tiwari/home
+Notes:
+- PDFs and the profile photo are linked to their public URLs rather than being bundled locally. If you want PDFs bundled in the ZIP (to be hosted locally on GitHub Pages), upload them here in the chat or provide the public PDF URLs and I will fetch and bundle them.
+- To deploy: create repo `YOUR_USERNAME.github.io`, add these files, and enable GitHub Pages.
