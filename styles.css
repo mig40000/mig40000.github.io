@@ -1,4 +1,3 @@
-
 /* Top-tabs modern theme — wider content */
 
 :root{
@@ -9,6 +8,11 @@
   --text:#0f1724;
   --maxw:1200px; /* wider content */
   --pad:1.2rem;
+  --color-text: #333;
+  --color-bg: #fff;
+  --color-accent: #003366;
+  --color-border: #eee;
+  --color-code-bg: #f5f5f5;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -21,6 +25,7 @@ body{
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(.8rem,2.5vw,var(--pad));}
 
@@ -55,6 +60,22 @@ body{
 .pub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:.6rem}
 .pub-card{padding:1rem;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(15,23,42,0.04);box-shadow:0 8px 20px rgba(11,15,30,0.04)}
 
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #003366;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
 /* responsive */
 @media (max-width:980px){
   .panel-grid{grid-template-columns:140px 1fr}
@@ -66,10 +87,118 @@ body{
   .top-tabs{justify-content:flex-start;overflow:auto;padding-left:8px}
   .wrap{padding:12px}
 }
-@media (prefers-color-scheme: dark){
-  :root{--card:#071023;--text:#e6eef8}
-  body{background: linear-gradient(180deg,#031026,#061226);color:var(--text)}
-  .panel{background:rgba(12,18,26,0.7);border:1px solid rgba(255,255,255,0.03);box-shadow:none}
-  .top-tabs [role="tab"]{color:rgba(255,255,255,0.86)}
-  .top-tabs [role="tab"][aria-selected="true"]{box-shadow:0 12px 30px rgba(16,50,115,0.18)}
+@media (max-width: 768px) {
+  .top-tabs {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .top-tabs button {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .avatar {
+    max-width: 150px;
+  }
+}
+
+/* Color scheme support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #e0e0e0;
+    --color-bg: #1a1a1a;
+    --color-accent: #66b3ff;
+    --color-border: #333;
+    --color-code-bg: #2a2a2a;
+  }
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* Smooth tab transitions */
+.panel {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Better tab styling */
+.top-tabs button {
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.top-tabs button[aria-selected="true"] {
+  border-bottom-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.top-tabs button:hover {
+  opacity: 0.8;
+}
+
+/* Improve contact list alignment */
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.contact-list .icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-accent);
+}
+
+/* Lazy load images */
+img[loading="lazy"] {
+  background-color: var(--color-code-bg);
+}
+
+/* Improve readability */
+a {
+  color: var(--color-accent);
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Better print styles */
+@media print {
+  .top-tabs,
+  .site-header nav,
+  .skip-to-content {
+    display: none;
+  }
+  
+  body {
+    color: #000;
+    background: white;
+  }
 }
