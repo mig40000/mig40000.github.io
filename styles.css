@@ -80,6 +80,79 @@ body{
 .pub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:.6rem}
 .pub-card{padding:1rem;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(15,23,42,0.04);box-shadow:0 8px 20px rgba(11,15,30,0.04)}
 
+/* Publications controls */
+.pub-controls {
+  display:flex;
+  gap:.6rem;
+  align-items:center;
+  margin: 0.6rem 0 0.9rem;
+  flex-wrap:wrap;
+}
+.pub-controls input[type="search"]{
+  flex:1 1 280px;
+  min-width:160px;
+  padding:.5rem .75rem;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,0.85);
+  color:var(--text);
+}
+.pub-controls select {
+  padding:.45rem .6rem;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  font-weight:600;
+}
+.pub-controls button {
+  padding:.45rem .7rem;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  cursor:pointer;
+  font-weight:600;
+}
+.pub-controls button[aria-pressed="true"] { background:var(--accent); color:#fff; }
+
+/* No results */
+.no-results { color: var(--muted); margin: 0.6rem 0; }
+
+/* Card view */
+#panel-pubs.card-view .pub-compact-list {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap:1rem;
+}
+#panel-pubs.card-view .pub-item {
+  background: var(--surface);
+  padding: .9rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(11,15,30,0.04);
+  border: 1px solid var(--border);
+  margin:0;
+}
+
+/* clickable pub line (keyboard focusable) */
+.pub-line { cursor:pointer; position:relative; display:block; }
+.pub-line[role="button"] { outline: none; }
+.pub-line:focus-visible { box-shadow: 0 0 0 4px rgba(6,182,212,0.12); border-radius:6px; }
+
+/* abstracts collapse/expand */
+.pub-abstract { transition: max-height .22s ease, opacity .22s ease; overflow:hidden; max-height:2000px; opacity:1; margin-top:0.35rem; }
+.pub-abstract.collapsed { max-height:0; opacity:0; margin-top:0; padding-top:0; }
+
+/* hover/focus affordances */
+.pub-item:hover, .pub-item:focus-within { transform: translateY(-2px); }
+
+/* small screens: collapse abstracts by default */
+@media (max-width:720px){
+  .pub-abstract { max-height:0; opacity:0; }
+  .pub-abstract.collapsed { max-height:0; }
+  .pub-abstract.expanded { max-height:2000px; opacity:1; }
+}
+
 /* Skip to content link for accessibility */
 .skip-to-content {
   position: absolute;
@@ -254,3 +327,6 @@ a:hover {
   h2 { font-size: 1.15rem; }
   body { font-size: 0.98rem; }
 }
+
+/* If needed: small fallback for publication summary color (keeps consistent look) */
+.pub-summary { color: var(--muted); }

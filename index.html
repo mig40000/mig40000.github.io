@@ -120,18 +120,6 @@
       </ul>
     </div>
   </div>
-          
-      </p>
-
-
-      <p class="quick-links">
-        <a href="#pubs">All Publications</a> · 
-        <a href="#contact">Contact</a> · 
-        <a href="https://scholar.google.de/citations?user=TLSBnagAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a> · 
-        <a href="https://www.linkedin.com/in/abhishek-tiwari-secure/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </p>
-    </div>
-  </div>
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -309,7 +297,20 @@
 <section id="panel-pubs" class="panel" role="tabpanel" aria-labelledby="tab-pubs">
   <div class="panel-inner">
     <h2 id="publications">Publications</h2>
+
+    <!-- new: controls -->
+    <div class="pub-controls" aria-hidden="false">
+      <input id="pub-search" type="search" placeholder="Search publications (title, author, venue)..." aria-label="Search publications">
+      <select id="pub-year-filter" aria-label="Filter publications by year">
+        <option value="all">All years</option>
+      </select>
+      <button id="pub-toggle-view" aria-pressed="false" title="Toggle card view">Card view</button>
+    </div>
+
+    <p id="pub-no-results" class="no-results" hidden>No publications match your search.</p>
+
     <p class="pub-summary">These publications collectively explore advanced topics in programming languages and software engineering, with a particular emphasis on static program analysis, information-flow security, automated program repair, and software testing. The works present novel techniques for detecting, diagnosing, and repairing software vulnerabilities and reliability issues in mobile, multilingual, and concurrent systems. Through the integration of language-aware analysis, demand-driven reasoning, and empirical validation, these studies contribute to improving the robustness, security, and maintainability of modern software systems.</p>
+
     <div class="pub-groups">
       <section class="pub-year-group">
         <h3 class="pub-year-heading">2025</h3>
@@ -319,19 +320,20 @@
             <div class="pub-abstract">Introduces a unified pointer analysis approach across multilingual or FFI-based systems.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Ruohonen, Jukka; Abdullahi, Sani; Tiwari, Abhishek;</span> — <strong>Vulnerability Patching Across Software Products and Software Components: A Case Study of Red Hat&#x27;s Product Portfolio</strong> <span class="pub-meta">, arXiv preprint arXiv:2509.13117, 2025</span> </div>
-            <div class="pub-abstract">Contributes to advances in programming languages, software analysis, and reliability engineering.</div>
+            <div class="pub-line"><span class="pub-authors">Ruohonen, Jukka; Abdullahi, Sani; Tiwari, Abhishek;</span> — <strong>Vulnerability Patching Across Software Products and Software Components: A Case Study of Red Hat's Product Portfolio</strong> <span class="pub-meta">, arXiv preprint arXiv:2509.13117, 2025</span> </div>
+            <div class="pub-abstract">Empirical case study on vulnerability patching across product portfolios.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Ramadan, Qusai; Ruohonen, Jukka; Tiwari, Abhishek; Alami, Adam; Boukhers, Zeyd;</span> — <strong>Towards Systematic Specification and Verification of Fairness Requirements: A Position Paper</strong> <span class="pub-meta">, 2025 IEEE 33rd International Requirements Engineering Conference Workshops (REW), IEEE, 405-411, 2025</span> </div>
-            <div class="pub-abstract">Contributes to advances in programming languages, software analysis, and reliability engineering.</div>
+            <div class="pub-line"><span class="pub-authors">Ramadan, Qusai; Ruohonen, Jukka; Tiwari, Abhishek; Alami, Adam; Boukhers, Zeyd;</span> — <strong>Towards Systematic Specification and Verification of Fairness Requirements: A Position Paper</strong> <span class="pub-meta">, 2025 IEEE REW Workshops, 405-411, 2025</span> </div>
+            <div class="pub-abstract">Position paper proposing systematic fairness specification and verification directions.</div>
           </li>
           <li class="pub-item">
             <div class="pub-line"><span class="pub-authors">Ruohonen, Jukka; Tiwari, Abhishek;</span> — <strong>Empirical Derivations from an Evolving Test Suite</strong> <span class="pub-meta">, arXiv preprint arXiv:2511.00915, 2025</span> </div>
-            <div class="pub-abstract">Contributes to advances in programming languages, software analysis, and reliability engineering.</div>
+            <div class="pub-abstract">Empirical analysis of trends from an evolving test suite.</div>
           </li>
         </ul>
       </section>
+
       <section class="pub-year-group">
         <h3 class="pub-year-heading">2024</h3>
         <ul class="pub-compact-list">
@@ -340,112 +342,139 @@
             <div class="pub-abstract">Introduces a unified pointer analysis approach across multilingual or FFI-based systems.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Dong, Zhen; Furia, Carlo A;</span> — <strong>Automated Repair of Information Flow Security in Android Implicit Inter-App Communication</strong> <span class="pub-meta">, International Symposium on Formal Methods, Springer Nature Switzerland Cham, 285-303, 2024</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Dong, Zhen; Furia, Carlo A;</span> — <strong>Automated Repair of Information Flow Security in Android Implicit Inter-App Communication</strong> <span class="pub-meta">, International Symposium on Formal Methods, 285-303, 2024</span> </div>
+            <div class="pub-abstract">Automated repair techniques for information flow vulnerabilities in Android implicit inter-app communication.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Bhuiyan, Shifat Sahariar; Tiwari, Abhishek; Pei, Yu; Furia, Carlo A;</span> — <strong>Ranking Plausible Patches by Historic Feature Frequencies</strong> <span class="pub-meta">, arXiv preprint arXiv:2407.17240, 2024</span> </div>
-            <div class="pub-abstract">Contributes to advances in programming languages, software analysis, and reliability engineering.</div>
+            <div class="pub-line"><span class="pub-authors">Sahariar Bhuiyan, Shifat; Tiwari, Abhishek; Pei, Yu; Furia, Carlo A;</span> — <strong>Ranking Plausible Patches by Historic Feature Frequencies</strong> <span class="pub-meta">, arXiv preprint arXiv:2407.17240, 2024</span> </div>
+            <div class="pub-abstract">Ranking plausible program patches using historical feature frequencies.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Cai, Xiaobao; Dong, Zhen; Wang, Yongjiang; Tiwari, Abhishek; Peng, Xin;</span> — <strong>Reproducing Timing-Dependent GUI Flaky Tests in Android Apps via a Single Event Delay</strong> <span class="pub-meta">, Proceedings of the 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis, 1504-1515, 2024</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-line"><span class="pub-authors">Cai, Xiaobao; Dong, Zhen; Wang, Yongjiang; Tiwari, Abhishek; Peng, Xin;</span> — <strong>Reproducing Timing-Dependent GUI Flaky Tests in Android Apps via a Single Event Delay</strong> <span class="pub-meta">, ISSTA 2024, 1504-1515, 2024</span> </div>
+            <div class="pub-abstract">Technique for reproducing timing-dependent GUI flaky tests using a single event delay.</div>
           </li>
         </ul>
       </section>
+
       <section class="pub-year-group">
         <h3 class="pub-year-heading">2023</h3>
         <ul class="pub-compact-list">
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Costea, Andreea; Tiwari, Abhishek; Chianasta, Sigmund; R, Kishore; Roychoudhury, Abhik; Sergey, Ilya;</span> — <strong>Hippodrome: Data race repair using static analysis summaries</strong> <span class="pub-meta">, ACM Transactions on Software Engineering and Methodology, ACM New York, NY, 1-33, 2023</span> </div>
-            <div class="pub-abstract">Presents automated techniques for bug or race detection and repair using static analysis.</div>
+            <div class="pub-line"><span class="pub-authors">Costea, Andreea; Tiwari, Abhishek; Chianasta, Sigmund; R, Kishore; Roychoudhury, Abhik; Sergey, Ilya;</span> — <strong>HIPPODROME: Data Race Repair using Static Analysis Summaries</strong> <span class="pub-meta">, ACM Transactions on Software Engineering and Methodology, 2023</span> </div>
+            <div class="pub-abstract">Data race repair approach employing static analysis summaries to propose fixes.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Prakash, Jyoti; Tiwari, Abhishek; Hammer, Christian;</span> — <strong>Unifying Pointer Analyses for Polyglot Inter-operations through Summary Specialization</strong> <span class="pub-meta">, arXiv preprint arXiv:2305.03916, 2023</span> </div>
+            <div class="pub-line"><span class="pub-authors">Prakash, Jyoti; Tiwari, Abhishek; Hammer, Christian;</span> — <strong>Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-Based Programs</strong> <span class="pub-meta">, Science of Computer Programming, Elsevier, 103278, 2025</span> </div>
             <div class="pub-abstract">Introduces a unified pointer analysis approach across multilingual or FFI-based systems.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Rahimov, Alimerdan; Hammer, Christian;</span> — <strong>Understanding the impact of fingerprinting in Android hybrid apps</strong> <span class="pub-meta">, 2023 IEEE/ACM 10th International Conference on Mobile Software Engineering and Systems (MOBILESoft), IEEE, 28-39, 2023</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Dong, Zhen; Furia, Carlo A;</span> — <strong>Automated Repair of Information Flow Security in Android Implicit Inter-App Communication</strong> <span class="pub-meta">, International Symposium on Formal Methods, 285-303, 2024</span> </div>
+            <div class="pub-abstract">Automated repair techniques for information flow vulnerabilities in Android implicit inter-app communication.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Hammer, Christian;</span> — <strong>Demand-driven information flow analysis of WebView in Android hybrid apps</strong> <span class="pub-meta">, 2023 IEEE 34th International Symposium on Software Reliability Engineering (ISSRE), IEEE, 415-426, 2023</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-line"><span class="pub-authors">Cai, Xiaobao; Dong, Zhen; Wang, Yongjiang; Tiwari, Abhishek; Peng, Xin;</span> — <strong>Reproducing Timing-Dependent GUI Flaky Tests in Android Apps via a Single Event Delay</strong> <span class="pub-meta">, ISSTA 2024, 1504-1515, 2024</span> </div>
+            <div class="pub-abstract">Technique for reproducing timing-dependent GUI flaky tests using a single event delay.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Hammer, Christian;</span> — <strong>IWANDROID: Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps</strong> <span class="pub-meta">, https://doi.org/10.5281/zenodo.8270545, 2023</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Hammer, Christian;</span> — <strong>Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps</strong> <span class="pub-meta">, 34th ISSRE, 2023</span> </div>
+            <div class="pub-abstract">Demand-driven information flow analysis tailored for WebView in hybrid Android apps.</div>
+          </li>
+          <li class="pub-item">
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Hammer, Christian;</span> — <strong>IWANDROID: Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps</strong> <span class="pub-meta">, Zenodo Artifact, DOI:10.5281/zenodo.8270545, 2023</span> </div>
+            <div class="pub-abstract">Artifact for demand-driven information flow analysis for WebView.</div>
           </li>
         </ul>
       </section>
+
+      <section class="pub-year-group">
+        <h3 class="pub-year-heading">2022</h3>
+        <ul class="pub-compact-list">
+          <li class="pub-item">
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Groß, Sascha; Hammer, Christian;</span> — <strong>A large scale analysis of android—web hybridization</strong> <span class="pub-meta">, Journal of Systems and Software, Elsevier, 110775, 2020</span> </div>
+            <div class="pub-abstract">Large-scale analysis of Android–web hybridization in applications.</div>
+          </li>
+          <li class="pub-item">
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Yu, Xiao Liang; Roychoudhury, Abhik;</span> — <strong>Flaky test detection in Android via event order exploration</strong> <span class="pub-meta">, ESEC/FSE 2021, 367-378, 2021</span> </div>
+            <div class="pub-abstract">Detection of flaky tests in Android via exploration of event order.</div>
+          </li>
+        </ul>
+      </section>
+
       <section class="pub-year-group">
         <h3 class="pub-year-heading">2021</h3>
         <ul class="pub-compact-list">
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Prakash, Jyoti; Tiwari, Abhishek; Hammer, Christian;</span> — <strong>Effects of program representation on pointer analyses—an empirical study</strong> <span class="pub-meta">, International Conference on Fundamental Approaches to Software Engineering, Springer International Publishing Cham, 240-261, 2021</span> </div>
+            <div class="pub-line"><span class="pub-authors">Prakash, Jyoti; Tiwari, Abhishek; Hammer, Christian;</span> — <strong>Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-Based Programs</strong> <span class="pub-meta">, Science of Computer Programming, Elsevier, 103278, 2025</span> </div>
             <div class="pub-abstract">Introduces a unified pointer analysis approach across multilingual or FFI-based systems.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Dong, Zhen; Tiwari, Abhishek; Yu, Xiao Liang; Roychoudhury, Abhik;</span> — <strong>Flaky test detection in Android via event order exploration</strong> <span class="pub-meta">, Proceedings of the 29th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering, 367-378, 2021</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Dong, Zhen; Furia, Carlo A;</span> — <strong>Automated Repair of Information Flow Security in Android Implicit Inter-App Communication</strong> <span class="pub-meta">, International Symposium on Formal Methods, 285-303, 2024</span> </div>
+            <div class="pub-abstract">Automated repair techniques for information flow vulnerabilities in Android implicit inter-app communication.</div>
+          </li>
+          <li class="pub-item">
+            <div class="pub-line"><span class="pub-authors">Cai, Xiaobao; Dong, Zhen; Wang, Yongjiang; Tiwari, Abhishek; Peng, Xin;</span> — <strong>Reproducing Timing-Dependent GUI Flaky Tests in Android Apps via a Single Event Delay</strong> <span class="pub-meta">, ISSTA 2024, 1504-1515, 2024</span> </div>
+            <div class="pub-abstract">Technique for reproducing timing-dependent GUI flaky tests using a single event delay.</div>
+          </li>
+          <li class="pub-item">
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Hammer, Christian;</span> — <strong>Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps</strong> <span class="pub-meta">, 34th ISSRE, 2023</span> </div>
+            <div class="pub-abstract">Demand-driven information flow analysis tailored for WebView in hybrid Android apps.</div>
+          </li>
+          <li class="pub-item">
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Hammer, Christian;</span> — <strong>IWANDROID: Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps</strong> <span class="pub-meta">, Zenodo Artifact, DOI:10.5281/zenodo.8270545, 2023</span> </div>
+            <div class="pub-abstract">Artifact for demand-driven information flow analysis for WebView.</div>
           </li>
         </ul>
       </section>
+
       <section class="pub-year-group">
         <h3 class="pub-year-heading">2020</h3>
         <ul class="pub-compact-list">
           <li class="pub-item">
             <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Groß, Sascha; Hammer, Christian;</span> — <strong>A large scale analysis of android—web hybridization</strong> <span class="pub-meta">, Journal of Systems and Software, Elsevier, 110775, 2020</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-abstract">Large-scale analysis of Android–web hybridization in applications.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Dong, Zhen; Tiwari, Abhishek; Yu, Xiao Liang; Roychoudhury, Abhik;</span> — <strong>Concurrency-related flaky test detection in android apps</strong> <span class="pub-meta">, arXiv preprint arXiv:2005.10762, 2020</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Yu, Xiao Liang; Roychoudhury, Abhik;</span> — <strong>Flaky test detection in Android via event order exploration</strong> <span class="pub-meta">, ESEC/FSE 2021, 367-378, 2021</span> </div>
+            <div class="pub-abstract">Detection of flaky tests in Android via exploration of event order.</div>
           </li>
         </ul>
       </section>
+
       <section class="pub-year-group">
         <h3 class="pub-year-heading">2019</h3>
         <ul class="pub-compact-list">
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Hammer, Christian;</span> — <strong>A Central and Evolving Benchmark</strong> <span class="pub-meta">, https://2019.ecoop.org/details/benchwork-2019-papers/7/A-Central-and-Evolving-Benchmark, 2019</span> </div>
-            <div class="pub-abstract">Provides a central and evolving benchmark for evaluating program analyses.</div>
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek;</span> — <strong>Enhancing Users’ Privacy: Static Resolution of the Dynamic Properties of Android</strong> <span class="pub-meta">, University of Potsdam, 2019</span> </div>
+            <div class="pub-abstract">Static techniques to reason about dynamic Android properties for privacy.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek;</span> — <strong>Enhancing Users’Privacy: Static Resolution of the Dynamic Properties of Android</strong> <span class="pub-meta">, University of Potsdam, 2019</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
-          </li>
-          <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Groß, Sascha; Hammer, Christian;</span> — <strong>Iifa: modular inter-app intent information flow analysis of android applications</strong> <span class="pub-meta">, International Conference on Security and Privacy in Communication Systems, Springer International Publishing Cham, 335-349, 2019</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
-          </li>
-          <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Prakash, Jyoti; Groß, Sascha; Hammer, Christian;</span> — <strong>Ludroid: A large scale analysis of android–web hybridization</strong> <span class="pub-meta">, 2019 19th International Working Conference on Source Code Analysis and Manipulation (SCAM), IEEE, 256-267, 2019</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Groß, Sascha; Hammer, Christian;</span> — <strong>Iifa: modular inter-app intent information flow analysis of android applications</strong> <span class="pub-meta">, SECURCOMM, 2019</span> </div>
+            <div class="pub-abstract">Modular inter-app intent information flow analysis for Android apps.</div>
           </li>
         </ul>
       </section>
+
       <section class="pub-year-group">
         <h3 class="pub-year-heading">2018</h3>
         <ul class="pub-compact-list">
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Groß, Sascha; Tiwari, Abhishek; Hammer, Christian;</span> — <strong>Pianalyzer: A precise approach for pendingintent vulnerability analysis</strong> <span class="pub-meta">, European Symposium on Research in Computer Security, Springer International Publishing Cham, 41-59, 2018</span> </div>
-            <div class="pub-abstract">Contributes to advances in programming languages, software analysis, and reliability engineering.</div>
+            <div class="pub-line"><span class="pub-authors">Groß, Sascha; Tiwari, Abhishek; Hammer, Christian;</span> — <strong>PIAnalyzer: A Precise Approach to PendingIntent Vulnerability Analysis</strong> <span class="pub-meta">, ESORICS 2018, LNCS 11099, Springer, 2018</span> </div>
+            <div class="pub-abstract">PIAnalyzer: precise analysis for PendingIntent vulnerabilities.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Bendun, Fabian; Hammer, Christian;</span> — <strong>A Formal Logic Framework for the Automation of the Right to be Forgotten</strong> <span class="pub-meta">, International Conference on Security and Privacy in Communication Systems, Springer International Publishing Cham, 95-111, 2018</span> </div>
-            <div class="pub-abstract">Contributes to advances in programming languages, software analysis, and reliability engineering.</div>
+            <div class="pub-line"><span class="pub-authors">Tiwari, Abhishek; Bendun, Fabian; Hammer, Christian;</span> — <strong>A Formal Logic Framework for the Automation of the Right to be Forgotten</strong> <span class="pub-meta">, Security & Privacy in Communication Systems, 95-111, 2018</span> </div>
+            <div class="pub-abstract">Formal logic framework for automating right-to-be-forgotten requirements.</div>
           </li>
           <li class="pub-item">
-            <div class="pub-line"><span class="pub-authors">Groß, Sascha; Tiwari, Abhishek; Hammer, Christian;</span> — <strong>ThiefTrap – An Anti-theft Framework for Android</strong> <span class="pub-meta">, Security and Privacy in Communication Networks, Springer International Publishing, 167-184, 2018</span> </div>
-            <div class="pub-abstract">Focuses on Android security, static analysis, and repair of information-flow or reliability issues.</div>
+            <div class="pub-line"><span class="pub-authors">Groß, Sascha; Tiwari, Abhishek; Hammer, Christian;</span> — <strong>ThiefTrap – An Anti-theft Framework for Android</strong> <span class="pub-meta">, Security and Privacy in Communication Networks, Springer, 2018</span> </div>
+            <div class="pub-abstract">Anti-theft framework design and evaluation for Android devices.</div>
           </li>
         </ul>
       </section>
     </div>
   </div>
-  <style>
 
+  <style>
 #panel-pubs .panel-inner { 
   max-width: 1200px; 
   margin-left: 1.5rem; 
@@ -471,6 +500,96 @@
 }
 #panel-pubs { overflow-x: hidden; }
 
+.pub-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+#pub-search {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+#pub-year-filter {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-left: 0.5rem;
+}
+
+#pub-toggle-view {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#pub-toggle-view[aria-pressed="true"] {
+  background-color: var(--muted);
+}
+
+.no-results {
+  color: var(--error);
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.card-view .pub-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.card-view .pub-item:hover {
+  transform: scale(1.02);
+}
+
+.card-view .pub-line {
+  margin: 0 0 0.5rem;
+}
+
+.card-view .pub-authors {
+  font-weight: bold;
+}
+
+.card-view .pub-meta {
+  font-size: 0.8rem;
+}
+
+.card-view .pub-abstract {
+  display: none;
+  margin-top: 0.5rem;
+}
+
+.card-view .pub-item[aria-expanded="true"] .pub-abstract {
+  display: block;
+}
+
+.card-view .pub-item[aria-expanded="true"] {
+  border-color: var(--accent);
+}
+
+@media (min-width: 600px) {
+  .pub-controls {
+    flex-direction: row;
+  }
+
+  #pub-search {
+    margin-right: 0.5rem;
+  }
+}
   </style>
 </section>
 
