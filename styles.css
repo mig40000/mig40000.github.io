@@ -1,37 +1,46 @@
 /* Top-tabs modern theme — wider content */
 
 :root{
-  --accent:#2563eb;
-  --muted:#6b7280;
-  --bg1:#f7fbff;
-  --card:#ffffff;
-  --text:#0f1724;
-  --maxw:1200px; /* wider content */
-  --pad:1.2rem;
-  --color-text: #333;
-  --color-bg: #fff;
-  --color-accent: #003366;
-  --color-border: #eee;
-  --color-code-bg: #f5f5f5;
+  /* glass theme as default */
+  --bg: linear-gradient(180deg,#eff8ff,#ffffff);
+  --surface: rgba(255,255,255,0.65);
+  --text: #0b1320;
+  --muted: #475569;
+  --meta: #6b7280;
+  --accent: #06b6d4;
+  --border: rgba(6,182,212,0.10);
 
-  /* new semantic colors */
-  --color-muted: #444;
-  --color-meta: #666;
+  --radius: 12px;
+  --maxw:1200px;
+  --pad:1.2rem;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color-scheme: light dark;
 }
+
+/* Typography improvements */
+html { font-size: 16px; }
+body { font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1,h2,h3 { color: var(--text); margin-top: 0; font-weight:700; line-height:1.2 }
+h2 { font-size: 1.35rem; margin-bottom: .5rem; }
+h3 { font-size: 1.05rem; margin-bottom: .35rem; color: var(--muted); font-weight:600 }
 
 /* layout */
 *{box-sizing:border-box}
 html,body{height:100%}
+html { color-scheme: light dark; }
+
+/* remove page gradient and use a stable background color */
 body{
-  margin:0;
-  background: linear-gradient(180deg,#f7fbff,#eef6ff);
-  color:var(--text);
+  /* background: linear-gradient(180deg,#f7fbff,#eef6ff); */
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-text-size-adjust: 100%;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
 }
-.wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(.8rem,2.5vw,var(--pad));}
 
 /* header */
 .site-header{background:transparent;position:sticky;top:0;z-index:40;backdrop-filter: blur(6px);padding-top:.6rem;padding-bottom:.35rem}
@@ -42,11 +51,12 @@ body{
 /* top tabs */
 .top-tabs{display:flex;gap:.5rem;justify-content:center;margin-top:.6rem;padding:0 8px}
 .top-tabs [role="tab"]{
-  background:transparent;border:0;padding:.6rem .95rem;border-radius:999px;cursor:pointer;font-weight:600;color:rgba(15,23,42,0.85);
+  background:transparent;border:0;padding:.6rem .95rem;border-radius:999px;cursor:pointer;font-weight:600;color:var(--muted);
   transition:transform .12s ease, background .12s ease, color .12s ease;
 }
 .top-tabs [role="tab"][aria-selected="true"]{
-  color:white;background:linear-gradient(90deg,var(--accent),#1e4ed8);transform:translateY(-3px);box-shadow:0 12px 30px rgba(37,99,235,0.12);
+  color:white;background:var(--accent);transform:none;box-shadow:0 8px 24px rgba(37,99,235,0.14);
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 /* panels */
@@ -54,8 +64,14 @@ body{
 .panel h1{margin-top:0}
 .panel-grid{display:grid;grid-template-columns:220px 1fr;gap:1rem;align-items:start}
 
-/* avatar */
-.avatar{width:200px;height:200px;border-radius:12px;object-fit:cover;border:1px solid rgba(15,23,42,0.06);box-shadow:0 10px 30px rgba(11,15,30,0.06);}
+/* update panel and avatar to use semantic radii and shadows */
+.panel{ border-radius:var(--radius); box-shadow:var(--shadow); background:var(--surface-1); border:1px solid var(--border); }
+.avatar{ width:200px;height:200px;border-radius: calc(var(--radius) - 2px);border:1px solid rgba(15,23,42,0.06);box-shadow:0 10px 30px rgba(11,15,30,0.06);}
+
+/* avatar ring in dark mode */
+@media (prefers-color-scheme: dark) {
+  .avatar{ box-shadow: 0 6px 18px rgba(0,0,0,0.6); border-color: rgba(255,255,255,0.05); }
+}
 
 /* quick links */
 .quick-links a{color:var(--accent);text-decoration:none;margin-right:.6rem}
@@ -79,6 +95,43 @@ body{
 .skip-to-content:focus {
   top: 0;
 }
+
+/* keyboard focus styles (accessible) */
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; border-radius: 6px; }
+.top-tabs [role="tab"]:focus-visible { outline-offset: 3px; border-radius: 999px; }
+
+/* links and strong emphasis */
+a { color: var(--accent); text-decoration: underline; text-decoration-thickness: from-font; }
+a:focus-visible { box-shadow: 0 0 0 4px rgba(37,99,235,0.08); border-radius: 6px; }
+
+/* subtle lift on interactive cards */
+.pub-card, .panel { transition: transform .18s cubic-bezier(.22,.9,.35,1), box-shadow .18s ease; }
+.pub-card:hover, .panel:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(2,6,23,0.08); }
+
+/* news badges and list */
+ul.news-list, ul.news-list li { list-style: none; padding: 0; margin: 0; }
+.news-list li { padding: .25rem 0; display:flex; gap:0.6rem; align-items:flex-start; color:var(--muted); }
+.news-list li::before { content: "🔹"; display:inline-block; width:1.2rem; }
+
+/* back-to-top utility (add JS to toggle) */
+.back-to-top {
+  position: fixed; right: 1rem; bottom: 1.25rem; background: var(--accent); color: white;
+  width: 44px; height: 44px; border-radius: 999px; display:grid; place-items:center; box-shadow: 0 8px 22px rgba(2,6,23,0.22);
+  opacity: 0.95; transition: transform .18s ease, opacity .18s ease; z-index:1000;
+}
+.back-to-top:focus-visible { transform: translateY(-2px); }
+
+/* accessible helper */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Panels forced to use surface + readable text (prevents UA forced-dark issues) */
+body { background: var(--bg); color: var(--text); }
+.panel { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
 
 /* responsive */
 @media (max-width:980px){
@@ -114,58 +167,30 @@ body{
 /* Color scheme support */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text: #e0e0e0;
-    --color-bg: #1a1a1a;
-    --color-accent: #66b3ff;
-    --color-border: #333;
-    --color-code-bg: #2a2a2a;
-
-    /* dark-mode adjustments */
-    --color-muted: #bfc;
-    --color-meta: #9aa;
+    --bg: #071024;
+    --surface: #071125;
+    --text: #e6eef8;
+    --muted: #93a4bf;
+    --meta: #89a0c0;
+    --accent: #66b3ff;
+    --border: rgba(255,255,255,0.06);
   }
 }
 
-body {
-  color: var(--color-text);
-  background-color: var(--color-bg);
-}
-
-/* Ensure panels inherit the page colors (prevents forced/auto-dark issues on some mobile browsers) */
-.panel,
-.panel * {
-  color: var(--color-text);
-}
-
-/* Smooth tab transitions */
+/* ensure panels have explicit surface + text colors (prevents forced/auto-dark pitfalls) */
 .panel {
-  animation: fadeIn 0.3s ease-in-out;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+  /* prevent some UA forced color changes */
+  forced-color-adjust: none;
+  -webkit-text-fill-color: var(--text);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Better tab styling */
-.top-tabs button {
-  transition: all 0.2s ease;
-  border-bottom: 3px solid transparent;
-}
-
-.top-tabs button[aria-selected="true"] {
-  border-bottom-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
-.top-tabs button:hover {
-  opacity: 0.8;
+/* ensure all panel children inherit correct text color */
+.panel, .panel * {
+  color: var(--text);
 }
 
 /* Improve contact list alignment */
@@ -185,7 +210,8 @@ body {
 .contact-list .icon {
   flex-shrink: 0;
   margin-top: 2px;
-  color: var(--color-accent);
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
 }
 
 /* Lazy load images */
@@ -215,4 +241,16 @@ a:hover {
     color: #000;
     background: white;
   }
+}
+
+/* reduced motion user preference */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .pub-card:hover, .panel:hover { transform: none; box-shadow: var(--shadow); }
+}
+
+/* small responsive type tweak for narrow screens */
+@media (max-width:720px) {
+  h2 { font-size: 1.15rem; }
+  body { font-size: 0.98rem; }
 }

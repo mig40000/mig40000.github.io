@@ -1,4 +1,3 @@
-
 // Top-tabs accessible behavior + hash routing
 (function(){
   const tabs = Array.from(document.querySelectorAll('#tablist [role="tab"]'));
@@ -44,3 +43,12 @@
   // set year
   const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ensure previously stored theme preference doesn't override the glass default
+  try { localStorage.removeItem('site-theme'); } catch (e) {}
+  // explicitly set the theme attribute to 'glass' (keeps behavior predictable)
+  document.documentElement.setAttribute('data-theme','glass');
+
+  // ...existing script functionality (tabs, year updater, back-to-top etc.) ...
+});
