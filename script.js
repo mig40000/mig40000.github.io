@@ -91,6 +91,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+  // Theme handling
+  const themeSelect = document.getElementById('theme-select');
+  const setTheme = (t) => document.documentElement.setAttribute('data-theme', t);
+  const saved = localStorage.getItem('site-theme');
+  if (saved) setTheme(saved);
+  if (themeSelect) {
+    if (saved) themeSelect.value = saved;
+    themeSelect.addEventListener('change', () => {
+      const val = themeSelect.value;
+      setTheme(val);
+      try { localStorage.setItem('site-theme', val); } catch {}
+    });
+  }
+
   // Publications: search, year filter, view toggle, collapsible abstracts
   const panel = document.getElementById('panel-pubs');
   if (panel) {
@@ -98,79 +112,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearFilter = document.getElementById('pub-year-filter');
     const toggleViewBtn = document.getElementById('pub-toggle-view');
     const noResults = document.getElementById('pub-no-results');
-
     const yearGroups = Array.from(panel.querySelectorAll('.pub-year-group'));
     const items = Array.from(panel.querySelectorAll('.pub-item'));
 
-    // populate year filter from headings
-    const years = yearGroups.map(g => {
-      const h = g.querySelector('.pub-year-heading');
-      return h ? h.textContent.trim() : null;
-    }).filter(Boolean);
+    // populate years
+    const years = yearGroups.map(g => g.querySelector('.pub-year-heading')?.textContent.trim()).filter(Boolean);
     Array.from(new Set(years)).sort((a,b)=>b.localeCompare(a)).forEach(y=>{
-      const opt = document.createElement('option'); opt.value = y; opt.textContent = y; yearFilter.appendChild(opt);
+      const opt=document.createElement('option'); opt.value=y; opt.textContent=y; yearFilter.appendChild(opt);
     });
 
-    // ensure pub-line acts as a keyboard-accessible toggle
+    // make pub-line toggles
     items.forEach(li=>{
-      const line = li.querySelector('.pub-line');
-      const abs = li.querySelector('.pub-abstract');
-      if (!line || !abs) return;
+      const line=li.querySelector('.pub-line');
+      const abs=li.querySelector('.pub-abstract');
+      if(!line||!abs) return;
       line.setAttribute('role','button');
-      line.tabIndex = 0;
-      // initial collapsed state on small screens
-      if (window.innerWidth < 720) abs.classList.add('collapsed');
-      // click toggles
-      line.addEventListener('click', () => abs.classList.toggle('collapsed'));
-      line.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-          e.preventDefault(); abs.classList.toggle('collapsed');
-        }
+      line.tabIndex=0;
+      if(window.innerWidth<720) abs.classList.add('collapsed');
+      const toggle=()=>abs.classList.toggle('collapsed');
+      line.addEventListener('click', toggle);
+      line.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){e.preventDefault();toggle();}
       });
     });
 
-    const updateVisibility = () => {
-      const q = (search && search.value || '').trim().toLowerCase();
-      let visibleCount = 0;
-
+    const update = () => {
+      const q=(search?.value||'').trim().toLowerCase();
+      let visible=0;
       items.forEach(li=>{
-        const text = li.innerText.toLowerCase();
-        const group = li.closest('.pub-year-group');
-        const year = group ? (group.querySelector('.pub-year-heading')?.textContent.trim()||'') : '';
-        const matchesYear = yearFilter.value === 'all' || year === yearFilter.value;
-        const matchesQuery = !q || text.includes(q);
-        const show = matchesYear && matchesQuery;
-        li.style.display = show ? '' : 'none';
-        if (show) visibleCount++;
+        const text=li.innerText.toLowerCase();
+        const year=li.closest('.pub-year-group')?.querySelector('.pub-year-heading')?.textContent.trim()||'';
+        const show=(yearFilter.value==='all'||year===yearFilter.value)&&(!q||text.includes(q));
+        li.style.display=show?'':'none';
+        if(show) visible++;
       });
-
-      // hide year groups with no visible items
-      yearGroups.forEach(g => {
-        const any = g.querySelector('.pub-item:not([style*="display: none"])');
-        g.style.display = any ? '' : 'none';
+      yearGroups.forEach(g=>{
+        const any=g.querySelector('.pub-item:not([style*="display: none"])');
+        g.style.display=any?'':'none';
       });
-
-      if (noResults) noResults.hidden = (visibleCount > 0);
+      if(noResults) noResults.hidden=visible>0;
     };
 
-    // events
-    if (search) search.addEventListener('input', debounce(updateVisibility, 150));
-    if (yearFilter) yearFilter.addEventListener('change', updateVisibility);
-    if (toggleViewBtn) {
-      toggleViewBtn.addEventListener('click', () => {
-        const isCard = panel.classList.toggle('card-view');
-        toggleViewBtn.setAttribute('aria-pressed', String(isCard));
-        toggleViewBtn.textContent = isCard ? 'List view' : 'Card view';
-      });
-    }
+    search?.addEventListener('input', debounce(update,150));
+    yearFilter?.addEventListener('change', update);
+    toggleViewBtn?.addEventListener('click', ()=>{
+      const isCard=panel.classList.toggle('card-view');
+      toggleViewBtn.setAttribute('aria-pressed', String(isCard));
+      toggleViewBtn.textContent=isCard?'List view':'Card view';
+    });
 
-    // initial visibility
-    updateVisibility();
+    update();
   }
 
-  // small debounce utility (shared)
-  function debounce(fn, wait=100) {
-    let t;
-    return (...args) => { clearTimeout(t); t = setTimeout(()=> fn(...args), wait); };
-  }
+  function debounce(fn, wait=120){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),wait);} }
 });

@@ -82,15 +82,12 @@
         and currently leads and co-leads funded project proposals under the DIREC and Digital Lead initiatives.
       </p>
 
-      </p>
-
 <h3>🐦 News</h3>
-<ul style="list-style: none; padding-left: 0;">
-  <li>🔹 2026 — Invited to serve on the Program Committee of ASE 2026.</li>
-  <li>🔹 2026 — Four papers accepted across various SANER 2026 tracks.</li>
-  <li>🔹 2025 — Our project <em>Beyond Patching: Empowering organizations to stay ahead of software security threats</em> has been funded by Digital Leads.</li>
-  <li>🔹 2025 — Our project <em>Privacy in the Realm of Multilingual Programs: Security in Hybrid Apps</em> has been funded by DIREC. We will soon be hiring a PostDoc. 
-    <a href="https://direc.dk/privacy-in-the-realm-of-multilingual-programs-security-in-hybrid-apps/" target="_blank">More details</a>.
+<ul class="news-list">
+  <li>2026 — Invited to serve on the Program Committee of ASE 2026.</li>
+  <li>2026 — Four papers accepted across various SANER 2026 tracks.</li>
+  <li>2025 — Our project Beyond Patching: Empowering organizations to stay ahead of software security threats has been funded by Digital Leads.</li>
+  <li>2025 — Our project Privacy in the Realm of Multilingual Programs: Security in Hybrid Apps has been funded by DIREC<a class="news-link" href="https://direc.dk/privacy-in-the-realm-of-multilingual-programs-security-in-hybrid-apps/" target="_blank" aria-label="Project details">↗</a>.
   </li>
 </ul>
 
@@ -100,8 +97,7 @@
 
 <h3 itemprop="publi">Selected Publications</h3>
 
-<div class="right">
-      <ul class="publication-list">
+  <ul class="publication-list">
 
         <li><strong>[ESEC/FSE]</strong> Zhen Dong, Abhishek Tiwari, Xiao Liang Yu, and Abhik Roychoudhury. <em>Flaky Test Detection in Android via Event Order Exploration.</em> ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE), 2021. <a href="https://www.comp.nus.edu.sg/~abhik/pdf/FSE21.pdf" target="_blank" rel="noopener noreferrer">PDF</a></li>
 
@@ -118,7 +114,6 @@
         <li><strong>[ESORICS]</strong> Sascha Groß, Abhishek Tiwari, and Christian Hammer. <em>PIAnalyzer: A Precise Approach to PendingIntent Vulnerability Analysis.</em> Computer Security – ESORICS 2018, LNCS 11099, Springer, 2018. <a href="https://link.springer.com/chapter/10.1007/978-3-319-98989-1_3" target="_blank" rel="noopener noreferrer">PDF</a></li>
 
       </ul>
-    </div>
   </div>
 
   <!-- JSON-LD Structured Data -->
@@ -162,70 +157,70 @@
   <h2>Research</h2>
 
   <p>
-    My research focuses on building principled, programming-language–based techniques that make software secure, private, and trustworthy.
-    I work at the intersection of <strong>static analysis</strong>, <strong>language-based security</strong>, <strong>information flow control</strong>, 
-    <strong>Android privacy</strong>, and <strong>multilingual program analysis</strong>, with a strong emphasis on practical impact.
+    My research focuses on making software dependable, private, and secure. I blend programming languages and software engineering with an emphasis on tools practitioners can use.
   </p>
 
-  <h3>Static Analysis</h3>
-  <p>
-    I design sound, scalable static analyses to uncover bugs, vulnerabilities, and data-flow problems. My work includes modular pointer analysis, summary-based reasoning, and automated repair techniques, with applications to real-world systems such as Android and web apps.
-  </p>
-  <ul>
-    <li>HIPPODROME: Data Race Repair using Static Analysis Summaries — TOSEM, 2023</li>
-    <li>Effects of Program Representation on Pointer Analyses — FASE, 2021</li>
-    <li>Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-Based Programs — Science of Computer Programming, 2025</li>
-  </ul>
-
-  <h3>Language-Based Security & Information Flow Control</h3>
-  <p>
-    I apply program analysis techniques to enforce security and privacy properties in software. 
-    A central focus is information-flow control, ensuring that sensitive data does not leak across component or privilege boundaries.
-    My work spans automated repair of insecure communication patterns, modeling unsafe flows, and analyzing security issues in hybrid mobile apps.
-  </p>
+  <div class="research-block">
+    <h3>Static Analysis</h3>
+    <p>
+      I build scalable static analyses that uncover bugs, vulnerabilities, and data-flow issues in real systems. Recent work includes summary-based reasoning, modular pointer analysis, and automated repair techniques applied to Android and web applications.
+    </p>
     <ul>
-    <li>Automated Repair of Information Flow Security in Android Implicit Inter-App Communication — FM, 2024</li>
-    <li>Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps — ISSRE, 2023</li>
-    <li>IIFA: Modular Inter-App Intent Information Flow Analysis of Android Applications — SecureComm, 2019</li>
-  </ul>
+      <li>HIPPODROME: Data Race Repair using Static Analysis Summaries — TOSEM, 2023</li>
+      <li>Effects of Program Representation on Pointer Analyses — FASE, 2021</li>
+      <li>Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-Based Programs — Science of Computer Programming, 2025</li>
+    </ul>
+  </div>
 
-  <h3>Android Privacy & Security</h3>
-  <p>
-    Android applications pose complex privacy and security challenges due to their permission model, inter-app communication model, and hybrid APIs.
-    I analyze native and hybrid Android apps—including WebView-based systems—to detect privacy violations, unsafe communication, and data misuse.
-    My goal is to build analyses that scale to large apps and provide actionable insights to developers.
-  </p>
+  <div class="research-block">
+    <h3>Language-Based Security & Information Flow</h3>
+    <p>
+      I apply program analysis to enforce security and privacy properties. A focus area is information-flow control: keeping sensitive data from leaking across component or privilege boundaries in mobile and multilingual systems.
+    </p>
     <ul>
-    <li>Understanding the Impact of Fingerprinting in Android Hybrid Apps — MOBILESoft, 2023</li>
-    <li>IWANDROID: Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps — ISSRE 2023</li>
-    <li>PIAnalyzer: Precise PendingIntent Vulnerability Analysis — ESORICS, 2018</li>
-  </ul>
+      <li>Automated Repair of Information Flow Security in Android Implicit Inter-App Communication — FM, 2024</li>
+      <li>Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps — ISSRE, 2023</li>
+      <li>IIFA: Modular Inter-App Intent Information Flow Analysis of Android Applications — SecureComm, 2019</li>
+    </ul>
+  </div>
 
-  <h3>Multilingual Program Analysis</h3>
-  <p>
-    Modern software systems frequently mix languages through foreign-function interfaces and polyglot runtimes.
-    I develop analyses that reason across language boundaries by unifying models of memory, pointers, and control flow.
-    This enables static analysis of heterogeneous codebases where Java, C/C++, JavaScript, Rust, and other languages interact.
-  </p>
+  <div class="research-block">
+    <h3>Android Privacy & Security</h3>
+    <p>
+      Android apps mix permissions, inter-app communication, and hybrid APIs. I analyze native and hybrid apps to detect privacy violations, unsafe communication patterns, and data misuse, aiming for findings that scale to production code.
+    </p>
     <ul>
-    <li>Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-Based Programs — Science of Computer Programming, 2025</li>
-    <li>Challenges of Multilingual Program Specification and Analysis — Lecture Notes / Symposium, 2024</li>
-    <li>Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps — ISSRE, 2023</li>
-  </ul>
+      <li>Understanding the Impact of Fingerprinting in Android Hybrid Apps — MOBILESoft, 2023</li>
+      <li>IWANDROID: Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps — ISSRE, 2023</li>
+      <li>PIAnalyzer: Precise PendingIntent Vulnerability Analysis — ESORICS, 2018</li>
+    </ul>
+  </div>
 
+  <div class="research-block">
+    <h3>Multilingual Program Analysis</h3>
+    <p>
+      Modern systems span several languages and runtimes. I design analyses that reason across language boundaries by unifying models of memory, pointers, and control flow, so heterogeneous codebases can be analyzed as one system.
+    </p>
+    <ul>
+      <li>Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-Based Programs — Science of Computer Programming, 2025</li>
+      <li>Challenges of Multilingual Program Specification and Analysis — Lecture Notes / Symposium, 2024</li>
+      <li>Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps — ISSRE, 2023</li>
+    </ul>
+  </div>
+
+  <div class="research-block">
     <h3>Software Testing</h3>
-  <p>
-    As a complementary strand of my work, I study testing challenges for GUI-driven mobile apps, especially flaky tests caused by timing and event-order nondeterminism.
-    I develop techniques to detect, reproduce, and mitigate flaky GUI tests in Android by reasoning about event order and carefully controlling delays.
-    This line of work helps make testing more reliable and increases developer confidence in automated test suites.
-  </p>
-  <ul>
-    <li>Reproducing Timing-dependent GUI Flaky Tests in Android Apps via A Single Event Delay — ISSTA, 2024</li>
-    <li>Flaky Test Detection in Android via Event Order Exploration — ESEC/FSE, 2021</li>
-  </ul>
+    <p>
+      I investigate flaky and timing-sensitive tests in GUI-driven mobile apps. By controlling event order and timing, my work helps teams reproduce and fix flaky tests, raising confidence in automated test suites.
+    </p>
+    <ul>
+      <li>Reproducing Timing-dependent GUI Flaky Tests in Android Apps via A Single Event Delay — ISSTA, 2024</li>
+      <li>Flaky Test Detection in Android via Event Order Exploration — ESEC/FSE, 2021</li>
+    </ul>
+  </div>
 
-<h2>Funded Projects</h2>
-<ul>
+  <h2>Funded Projects</h2>
+  <ul>
 
 <li>
   <strong>Privacy in the Realm of Multilingual Programs: Security in Hybrid Apps (Project Manager)</strong><br>
