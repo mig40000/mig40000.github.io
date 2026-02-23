@@ -173,14 +173,13 @@
   <h2>Research</h2>
 
   <p>
-    My research focuses on making software dependable, private, and secure. I blend programming languages and software engineering with an emphasis on tools practitioners can use.
+    My research lies at the intersection of programming languages and software engineering, with a unifying goal of making software more dependable, private, and secure. The common thread is building automated analysis tools grounded in formal methods yet practical enough to operate on real-world codebases.
   </p>
 
   <div class="research-block">
     <h3>🔬 Static Analysis</h3>
     <p>
-      I build scalable static analyses that uncover bugs, vulnerabilities, and data-flow issues in real systems. Recent work includes summary-based reasoning, modular pointer analysis, and automated repair techniques applied to Android and web applications.
-    </p>
+      My research in static analysis focuses on developing scalable techniques to detect bugs and vulnerabilities in software systems. My primary contributions include APR for data races, modular pointer analysis across language boundaries, and APR of security properties in Android and web applications.    </p>
     <ul>
       <li>HIPPODROME: Data Race Repair using Static Analysis Summaries — TOSEM, 2023</li>
       <li>Effects of Program Representation on Pointer Analyses — FASE, 2021</li>
@@ -191,7 +190,7 @@
   <div class="research-block">
     <h3>🔒 Language-Based Security &amp; Information Flow</h3>
     <p>
-      I apply program analysis to enforce security and privacy properties. A focus area is information-flow control: keeping sensitive data from leaking across component or privilege boundaries in mobile and multilingual systems.
+      Program analysis provides a rigorous foundation for enforcing security and privacy guarantees. This line of research targets information-flow control — ensuring that sensitive data cannot leak across component or privilege boundaries — with applications to mobile platforms and multilingual systems.
     </p>
     <ul>
       <li>Automated Repair of Information Flow Security in Android Implicit Inter-App Communication — FM, 2024</li>
@@ -203,7 +202,7 @@
   <div class="research-block">
     <h3>📱 Android Privacy &amp; Security</h3>
     <p>
-      Android apps mix permissions, inter-app communication, and hybrid APIs. I analyze native and hybrid apps to detect privacy violations, unsafe communication patterns, and data misuse, aiming for findings that scale to production code.
+      Android applications are inherently heterogeneous, combining native code, inter-app communication channels, and hybrid web APIs. This work develops analyses to surface privacy violations, unsafe intent patterns, and data misuse at the scale of real app markets, aiming for tools that remain tractable on production codebases.
     </p>
     <ul>
       <li>Understanding the Impact of Fingerprinting in Android Hybrid Apps — MOBILESoft, 2023</li>
@@ -215,7 +214,7 @@
   <div class="research-block">
     <h3>🌐 Multilingual Program Analysis</h3>
     <p>
-      Modern systems span several languages and runtimes. I design analyses that reason across language boundaries by unifying models of memory, pointers, and control flow, so heterogeneous codebases can be analyzed as one system.
+      Contemporary software systems increasingly span multiple programming languages and runtime environments. This research constructs unified abstract models of memory, pointers, and control flow that enable sound, modular reasoning across language boundaries and foreign-function interfaces, allowing heterogeneous codebases to be analysed as a single coherent system.
     </p>
     <ul>
       <li>Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-Based Programs — Science of Computer Programming, 2025</li>
@@ -227,7 +226,7 @@
   <div class="research-block">
     <h3>🧪 Software Testing</h3>
     <p>
-      I investigate flaky and timing-sensitive tests in GUI-driven mobile apps. By controlling event order and timing, my work helps teams reproduce and fix flaky tests, raising confidence in automated test suites.
+      Flaky tests quietly erode developer confidence and slow continuous-integration pipelines. This thread of work investigates timing-sensitive failures in GUI-driven mobile applications, developing techniques to reproduce and diagnose flaky behaviour through controlled event-order exploration and targeted event delays.
     </p>
     <ul>
       <li>Reproducing Timing-dependent GUI Flaky Tests in Android Apps via A Single Event Delay — ISSTA, 2024</li>
