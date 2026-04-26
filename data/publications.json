@@ -79,17 +79,17 @@
       "abstract": "Automated repair techniques for information flow vulnerabilities in Android implicit inter-app communication."
     },
     {
-      "id": "p-patches-2024",
-      "year": 2024,
+      "id": "p-patches-jss-2026",
+      "year": 2026,
       "title": "Ranking Plausible Patches by Historic Feature Frequencies",
       "authors": ["Shifat Sahariar Bhuiyan", "Abhishek Tiwari", "Yu Pei", "Carlo A. Furia"],
-      "venue": "arXiv",
-      "meta": "arXiv preprint arXiv:2407.17240, 2024",
-      "url": "https://arxiv.org/abs/2407.17240",
-      "type": "preprint",
-      "tags": ["Program Repair", "Empirical"],
+      "venue": "Journal of Systems and Software",
+      "meta": "Journal of Systems and Software, Elsevier, 2026 (accepted)",
+      "url": null,
+      "type": "journal",
+      "tags": ["Program Repair", "Automated Testing", "Patch Ranking"],
       "citations": 0,
-      "abstract": "Ranking plausible program patches using historical feature frequencies."
+      "abstract": "A technique for ranking plausible patches produced by automated program repair tools using feature similarity with historic programmer-written fixes."
     },
     {
       "id": "p-issta-2024",
