@@ -63,6 +63,28 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	// ── News list toggle ──────────────────────────────────────────────────────
+	const newsList = document.querySelector('.news-list');
+	const newsToggle = document.getElementById('news-toggle');
+	if (newsList && newsToggle) {
+		const newsItems = Array.from(newsList.querySelectorAll('li'));
+		const collapsedCount = 4;
+		const extraItems = newsItems.slice(collapsedCount);
+		if (extraItems.length) {
+			const setExpanded = (expanded) => {
+				extraItems.forEach(item => { item.hidden = !expanded; });
+				newsToggle.setAttribute('aria-expanded', String(expanded));
+				newsToggle.textContent = expanded ? 'Show less' : 'Show more';
+			};
+			setExpanded(false);
+			newsToggle.hidden = false;
+			newsToggle.addEventListener('click', () => {
+				const expanded = newsToggle.getAttribute('aria-expanded') === 'true';
+				setExpanded(!expanded);
+			});
+		}
+	}
+
 	// ── Publications: search, year filter, view toggle, collapsible abstracts ─
 	const panel = document.getElementById('panel-pubs');
 	if (panel) {
@@ -137,4 +159,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function debounce(fn, wait = 120) { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); }; }
 });
-

@@ -241,7 +241,7 @@ a:focus-visible { box-shadow: 0 0 0 4px rgba(37,99,235,0.08); border-radius: 6px
 ul.news-list {
   list-style: disc;
   padding-left: 1.2rem;
-  margin: 0;
+  margin: 0 0 0.15rem;
 }
 .news-list li {
   padding: .25rem 0;
@@ -255,6 +255,24 @@ ul.news-list {
   font-weight: 700;
   font-size: 0.95em;
   margin-left: 0.15rem;
+}
+.news-toggle{
+  display: inline-flex;
+  align-items: center;
+  margin: 0.15rem 0 1rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+.news-toggle:hover{
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+}
+.news-toggle:focus-visible{
+  outline-offset: 3px;
 }
 
 /* back-to-top utility (add JS to toggle) */
