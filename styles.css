@@ -349,6 +349,22 @@ abbr { text-decoration: underline dotted; cursor: help; }
 }
 .news-toggle:hover { background: var(--accent-soft); }
 
+/* ─── Research agenda callout ───────────────────────────────── */
+.agenda {
+  margin: 1.8rem 0 2.6rem;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.agenda-label {
+  margin: 0 0 .5rem;
+  font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--accent);
+}
+.agenda p:last-child { margin: 0; max-width: 66ch; font-size: 1.05rem; line-height: 1.6; color: var(--text); }
+.agenda em { font-style: italic; }
+
 /* ─── Research areas (editorial, borderless) ────────────────── */
 .research-grid {
   display: grid;

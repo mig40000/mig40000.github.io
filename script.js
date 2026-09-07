@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearFilter = document.getElementById('pub-year-filter');
     const typeFilter = document.getElementById('pub-type-filter');
     const toggleViewBtn = document.getElementById('pub-toggle-view');
-    const noResults = document.getElementById('pub-no-results');
     const yearGroups = Array.from(panel.querySelectorAll('.pub-year-group'));
     const items = Array.from(panel.querySelectorAll('.pub-item'));
 
@@ -186,6 +185,21 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // "No results" message is created on demand so it never ships in the static
+    // HTML — it exists only after an active search/filter matches nothing.
+    const groupsWrap = panel.querySelector('.pub-groups');
+    let noResultsEl = null;
+    const showNoResults = (show) => {
+      if (show && !noResultsEl) {
+        noResultsEl = document.createElement('p');
+        noResultsEl.className = 'no-results';
+        noResultsEl.setAttribute('role', 'status');
+        noResultsEl.textContent = 'No publications match your search.';
+        groupsWrap?.before(noResultsEl);
+      }
+      if (noResultsEl) noResultsEl.hidden = !show;
+    };
+
     const update = () => {
       const q = (search?.value || '').trim().toLowerCase();
       const ty = typeFilter?.value || 'all';
@@ -206,7 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       // Hide the curated Selected list while actively searching/filtering
       if (selectedWrap && featured.length) selectedWrap.hidden = filtering;
-      if (noResults) noResults.hidden = visible > 0;
+      // Only surface the empty state when a filter is active and nothing matched
+      showNoResults(filtering && visible === 0);
     };
 
     search?.addEventListener('input', debounce(update, 150));

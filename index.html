@@ -155,13 +155,13 @@
           <a href="https://doi.org/10.1109/ISSRE59848.2023.00020" target="_blank" rel="noopener noreferrer">ISSRE</a>.
           I have contributed to several <abbr title="Deutsche Forschungsgemeinschaft">DFG</abbr>- and
           <abbr title="Bundesministerium für Bildung und Forschung">BMBF</abbr>-funded initiatives, and currently
-          lead and co-lead funded projects under the DIREC and Digital Lead programmes.
+          lead and co-lead funded projects under the DIREC and Digital Lead programs.
         </p>
 
         <div class="highlights">
           <div class="highlight">
             <span class="highlight-label">Focus</span>
-            <span class="highlight-value">Static analysis, security, program repair &amp; testing</span>
+            <span class="highlight-value">Program analysis, security, program repair &amp; testing</span>
           </div>
           <div class="highlight">
             <span class="highlight-label">Service</span>
@@ -204,6 +204,19 @@
           making software more secure, dependable, and trustworthy — building automated analyses grounded in formal
           methods yet practical enough to run on real-world codebases.
         </p>
+
+        <aside class="agenda">
+          <p class="agenda-label">Research agenda</p>
+          <p>
+            Software is increasingly <em>polyglot</em> — a single application may interleave native code, JavaScript,
+            and foreign-function calls — yet our analyses still reason about one language at a time, leaving
+            vulnerabilities to hide in the seams. Over the next several years, I want to build program-analysis and
+            automated-repair techniques that enforce security and privacy guarantees soundly <em>across</em> these
+            language boundaries, not just within them. My aim is to make those guarantees practical enough for
+            developers and organizations to adopt in everyday workflows — so that trustworthy multilingual software
+            becomes the default rather than the exception.
+          </p>
+        </aside>
 
         <div class="research-grid">
           <article class="research-block">
@@ -248,7 +261,7 @@
 
           <article class="research-block">
             <h3><span class="ra-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/></svg></span>Software Testing</h3>
-            <p>Flaky tests erode developer confidence and slow CI pipelines. This thread investigates timing-sensitive failures in GUI-driven mobile apps, reproducing and diagnosing flaky behaviour through event-order exploration and targeted event delays.</p>
+            <p>Flaky tests erode developer confidence and slow CI pipelines. This thread investigates timing-sensitive failures in GUI-driven mobile apps, reproducing and diagnosing flaky behavior through event-order exploration and targeted event delays.</p>
             <ul>
               <li>Reproducing Timing-dependent GUI Flaky Tests — ISSTA, 2024</li>
               <li>Flaky Test Detection in Android via Event Order Exploration — ESEC/FSE, 2021</li>
@@ -369,8 +382,6 @@
           <button id="pub-toggle-view" aria-pressed="false" title="Toggle card view">Card view</button>
         </div>
 
-        <p id="pub-no-results" class="no-results" hidden>No publications match your search.</p>
-
         <div class="pub-groups">
 
           <section class="pub-year-group">
@@ -489,7 +500,7 @@
                   <span class="pub-authors">Furia, Carlo A.; <strong class="me">Tiwari, Abhishek</strong></span>
                   <span class="pub-links"><a class="pub-link" href="https://doi.org/10.1007/978-3-031-75380-0_8" target="_blank" rel="noopener noreferrer">DOI</a></span>
                 </div>
-                <div class="pub-abstract">Surveys the open challenges of specifying and analysing programs written in multiple languages, covering FFI boundaries and cross-language analysis.</div>
+                <div class="pub-abstract">Surveys the open challenges of specifying and analyzing programs written in multiple languages, covering FFI boundaries and cross-language analysis.</div>
               </li>
               <li class="pub-item">
                 <div class="pub-title"><strong>Automated Repair of Information Flow Security in Android Implicit Inter-App Communication</strong></div>
