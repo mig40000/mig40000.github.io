@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   const themeToggle = document.getElementById('theme-toggle');
   const stored = localStorage.getItem('site-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initial = stored || (prefersDark ? 'dark' : 'light');
+  const initial = stored || 'dark';            // dark is the default; light is opt-in
   root.setAttribute('data-theme', initial);
 
   const syncToggleLabel = () => {
@@ -27,31 +26,47 @@ document.addEventListener('DOMContentLoaded', () => {
     syncToggleLabel();
   });
 
-  /* ── Scrollspy navigation ─────────────────────────────────── */
+  /* ── Section routing — show one section at a time ─────────── */
   const navLinks = Array.from(document.querySelectorAll('.section-nav a'));
-  const sections = navLinks
-    .map(a => document.querySelector(a.getAttribute('href')))
-    .filter(Boolean);
+  const sections = Array.from(document.querySelectorAll('.content .section'));
+  const mainEl = document.querySelector('.content');
 
-  if (sections.length && 'IntersectionObserver' in window) {
-    const setActive = (id) => {
-      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+  if (navLinks.length && sections.length) {
+    const show = (id, { push = true, scroll = true } = {}) => {
+      const target = document.getElementById(id) || sections[0];
+      const activeId = target.id;
+
+      sections.forEach(s => { s.hidden = s.id !== activeId; });
+      navLinks.forEach(a => {
+        const isActive = a.getAttribute('href') === '#' + activeId;
+        a.classList.toggle('active', isActive);
+        if (isActive) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+
+      // retrigger the entrance animation each time a section is shown
+      target.classList.remove('section--enter');
+      void target.offsetWidth;
+      target.classList.add('section--enter');
+
+      if (push) history.pushState({ id: activeId }, '', '#' + activeId);
+      if (scroll) {
+        if (window.innerWidth <= 900) mainEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        else window.scrollTo({ top: 0 });
+      }
     };
-    const observer = new IntersectionObserver((entries) => {
-      // pick the entry closest to the top that is intersecting
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-      if (visible.length) setActive(visible[0].target.id);
-    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 
-    sections.forEach(s => observer.observe(s));
-
-    // Immediate feedback on click
-    navLinks.forEach(a => a.addEventListener('click', () => {
-      navLinks.forEach(x => x.classList.remove('active'));
-      a.classList.add('active');
+    navLinks.forEach(a => a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href').slice(1);
+      if (document.getElementById(id)) { e.preventDefault(); show(id); }
     }));
+
+    window.addEventListener('popstate', () => {
+      show(location.hash.slice(1) || sections[0].id, { push: false });
+    });
+
+    const startId = location.hash.slice(1);
+    show(document.getElementById(startId) ? startId : sections[0].id, { push: false, scroll: false });
   }
 
   /* ── News: show more / less ───────────────────────────────── */
@@ -121,17 +136,18 @@ document.addEventListener('DOMContentLoaded', () => {
       yearFilter.appendChild(opt);
     });
 
-    // Collapsible abstracts — click title to toggle
-    const smallScreen = () => window.innerWidth <= 900;
+    // Collapsible abstracts — collapsed by default, click title to reveal
     items.forEach(li => {
       const title = li.querySelector('.pub-title');
       const abs = li.querySelector('.pub-abstract');
       if (!title || !abs) return;
       title.setAttribute('role', 'button');
       title.setAttribute('tabindex', '0');
+      title.setAttribute('aria-expanded', 'false');
+      abs.classList.add('collapsed');
       const toggle = () => {
-        if (smallScreen()) abs.classList.toggle('expanded');
-        else abs.classList.toggle('collapsed');
+        const collapsed = abs.classList.toggle('collapsed');
+        title.setAttribute('aria-expanded', String(!collapsed));
       };
       title.addEventListener('click', toggle);
       title.addEventListener('keydown', e => {

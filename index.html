@@ -3,7 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="dark light" />
+  <!-- Set theme before paint to avoid a flash (dark is the default) -->
+  <script>
+    (function () {
+      try {
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('site-theme') || 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 
   <title>Abhishek Tiwari — Associate Professor, University of Southern Denmark</title>
   <meta name="description" content="Dr. Abhishek Tiwari is an Associate Professor in Software Engineering at the University of Southern Denmark, researching static program analysis, language-based security, automated program repair, and software testing." />
@@ -17,7 +27,7 @@
   <meta property="og:url" content="https://mig40000.github.io/" />
   <meta property="og:image" content="https://mig40000.github.io/assets/img/profile.jpg" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#0e7490" />
+  <meta name="theme-color" content="#0e1414" />
 
   <!-- Inline SVG favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230e7490'/%3E%3Ctext x='50' y='69' text-anchor='middle' font-size='54' font-family='Georgia,serif' fill='white' font-weight='700'%3EAT%3C/text%3E%3C/svg%3E" />
@@ -75,6 +85,7 @@
           <h1 class="name">Abhishek&nbsp;Tiwari</h1>
           <p class="role">Associate Professor of Software Engineering</p>
           <p class="affil">Maersk Mc-Kinney Møller Institute<br>University of Southern Denmark</p>
+          <p class="location"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C7.6 2 4 5.6 4 10c0 5.2 7 12 7.3 12.3a1 1 0 0 0 1.4 0C13 22 20 15.2 20 10c0-4.4-3.6-8-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>Odense, Denmark</p>
         </div>
 
         <nav class="social" aria-label="Academic profiles">
