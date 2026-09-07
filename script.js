@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (panel) {
     const search = document.getElementById('pub-search');
     const yearFilter = document.getElementById('pub-year-filter');
+    const typeFilter = document.getElementById('pub-type-filter');
     const toggleViewBtn = document.getElementById('pub-toggle-view');
     const noResults = document.getElementById('pub-no-results');
     const yearGroups = Array.from(panel.querySelectorAll('.pub-year-group'));
@@ -116,15 +117,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (/journal/.test(v))                                                           return ['Journal', 'journal'];
       return ['Conference', 'conference'];
     };
+    // Flagship venues that make up the curated "Selected Publications" list
+    const FLAGSHIP = /\b(icse|fse|esec|issta|ase|issre|tosem|fm|pldi|esorics)\b/;
     items.forEach(li => {
       const venueEl = li.querySelector('.pub-venue');
       if (!venueEl || venueEl.querySelector('.pub-type')) return;
-      const [label, kind] = classify(venueEl.textContent);
+      const venueText = venueEl.textContent;
+      const [label, kind] = classify(venueText);
+      li.dataset.pubType = kind;
+      if (FLAGSHIP.test(venueText.toLowerCase())) li.dataset.featured = 'true';
       const tag = document.createElement('span');
       tag.className = `pub-type pub-type--${kind}`;
       tag.textContent = label;
       venueEl.prepend(tag);
     });
+
+    // Build the Selected Publications list by cloning the flagship entries
+    // (single source of truth stays the full list below)
+    const selectedWrap = document.getElementById('pub-selected-wrap');
+    const selectedList = panel.querySelector('.pub-selected-list');
+    const featured = items.filter(li => li.dataset.featured === 'true');
+    if (selectedList && featured.length) {
+      featured.forEach(li => {
+        const clone = li.cloneNode(true);
+        clone.removeAttribute('style');
+        selectedList.appendChild(clone);
+      });
+      if (selectedWrap) selectedWrap.hidden = false;
+    }
 
     // Populate year filter
     const years = yearGroups
@@ -136,8 +156,19 @@ document.addEventListener('DOMContentLoaded', () => {
       yearFilter.appendChild(opt);
     });
 
-    // Collapsible abstracts — collapsed by default, click title to reveal
-    items.forEach(li => {
+    // Populate type filter from the kinds actually present
+    const TYPE_LABEL = { journal: 'Journal', conference: 'Conference', workshop: 'Workshop', preprint: 'Preprint', artifact: 'Artifact', thesis: 'Thesis' };
+    const present = new Set(items.map(li => li.dataset.pubType).filter(Boolean));
+    ['journal', 'conference', 'workshop', 'preprint', 'artifact', 'thesis'].forEach(t => {
+      if (!present.has(t)) return;
+      const opt = document.createElement('option');
+      opt.value = t; opt.textContent = TYPE_LABEL[t];
+      typeFilter?.appendChild(opt);
+    });
+
+    // Collapsible abstracts — collapsed by default, click title to reveal.
+    // Query fresh so the cloned Selected entries get wired too.
+    Array.from(panel.querySelectorAll('.pub-item')).forEach(li => {
       const title = li.querySelector('.pub-title');
       const abs = li.querySelector('.pub-abstract');
       if (!title || !abs) return;
@@ -157,11 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const update = () => {
       const q = (search?.value || '').trim().toLowerCase();
+      const ty = typeFilter?.value || 'all';
+      const filtering = q !== '' || yearFilter.value !== 'all' || ty !== 'all';
       let visible = 0;
       items.forEach(li => {
         const matchesYear = yearFilter.value === 'all' || yearOf(li) === yearFilter.value;
+        const matchesType = ty === 'all' || li.dataset.pubType === ty;
         const matchesText = !q || li.innerText.toLowerCase().includes(q);
-        const show = matchesYear && matchesText;
+        const show = matchesYear && matchesType && matchesText;
         li.style.display = show ? '' : 'none';
         if (show) visible++;
       });
@@ -170,11 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
           .some(li => li.style.display !== 'none');
         g.style.display = anyVisible ? '' : 'none';
       });
+      // Hide the curated Selected list while actively searching/filtering
+      if (selectedWrap && featured.length) selectedWrap.hidden = filtering;
       if (noResults) noResults.hidden = visible > 0;
     };
 
     search?.addEventListener('input', debounce(update, 150));
     yearFilter?.addEventListener('change', update);
+    typeFilter?.addEventListener('change', update);
     toggleViewBtn?.addEventListener('click', () => {
       const isCard = panel.classList.toggle('card-view');
       toggleViewBtn.setAttribute('aria-pressed', String(isCard));

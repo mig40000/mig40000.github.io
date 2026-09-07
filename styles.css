@@ -160,21 +160,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.25; color: var(--text); font-weight: 
 }
 .social svg { width: 19px; height: 19px; }
 
-/* CV / publications button */
-.cv-btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
-  padding: .6rem 1rem;
-  border-radius: 10px;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
-  font-size: .9rem;
-  box-shadow: var(--shadow-sm);
-  transition: background .15s, transform .15s;
-}
-.cv-btn:hover { background: var(--accent-2); text-decoration: none; transform: translateY(-1px); }
-.cv-btn svg { width: 16px; height: 16px; }
-
 /* section nav (scrollspy) */
 .section-nav {
   display: flex;
@@ -257,6 +242,14 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: inline; }
   font-weight: 500;
   letter-spacing: -0.015em;
   margin-bottom: 1.6rem;
+}
+/* Landing hero headline (About) — bigger, tighter, wraps to a few lines */
+.about-headline {
+  font-size: clamp(2.3rem, 1.3rem + 3vw, 3.1rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+  margin-bottom: 1.4rem;
 }
 .subhead {
   font-size: 1.1rem;
@@ -464,11 +457,12 @@ abbr { text-decoration: underline dotted; cursor: help; }
 }
 .pub-title { font-size: 1rem; line-height: 1.45; margin-bottom: .3rem; }
 .pub-title strong { font-weight: 600; color: var(--text); }
-.pub-title[role="button"] { cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: .9rem; }
+.pub-title[role="button"] { cursor: pointer; display: flex; align-items: flex-start; gap: .55rem; }
+.pub-title[role="button"] strong { flex: 1 1 auto; }
 .pub-title[role="button"]:hover strong { color: var(--accent); }
 .pub-title[role="button"]::after {
-  content: ""; flex-shrink: 0;
-  width: 7px; height: 7px; margin-top: .4rem;
+  content: ""; flex-shrink: 0; margin-top: .45rem;
+  width: 7px; height: 7px;
   border-right: 1.6px solid var(--faint); border-bottom: 1.6px solid var(--faint);
   transform: rotate(45deg); transition: transform .2s, border-color .2s;
 }
@@ -532,12 +526,21 @@ html[data-theme="dark"] .pub-type--preprint { background: rgba(251,191,36,.13); 
 .two-col ul { margin-top: .3rem; }
 .two-col li { font-size: .92rem; color: var(--muted); }
 
-/* ─── Contact ───────────────────────────────────────────────── */
-.contact-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 1.1rem; }
-.contact-list li { display: flex; align-items: flex-start; gap: .9rem; }
-.contact-list .icon { flex-shrink: 0; margin-top: .15rem; color: var(--accent); }
-.contact-list strong { font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; color: var(--faint); font-weight: 700; }
-.contact-list span { color: var(--text); font-size: .95rem; line-height: 1.5; }
+/* Service — self-contained category blocks that flow across balanced columns */
+.service-grid { columns: 2; column-gap: 3rem; margin-top: .5rem; }
+.svc-group {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 1.9rem;
+}
+.svc-group .subhead { margin-top: 0; }
+.svc-group ul { margin-top: .35rem; }
+.svc-group li { font-size: .92rem; color: var(--muted); }
+@media (max-width: 700px) { .service-grid { columns: 1; } }
+
+/* ─── Get in touch (closing note in About) ──────────────────── */
+.about-contact { color: var(--muted); }
 
 /* ─── Back to top ───────────────────────────────────────────── */
 .back-to-top {
@@ -562,7 +565,6 @@ html[data-theme="dark"] .pub-type--preprint { background: rgba(251,191,36,.13); 
     grid-template-areas:
       "avatar identity"
       "social social"
-      "cv cv"
       "nav nav"
       "foot foot";
     align-items: center;
@@ -573,7 +575,6 @@ html[data-theme="dark"] .pub-type--preprint { background: rgba(251,191,36,.13); 
   .identity { grid-area: identity; }
   .identity .name { font-size: 1.5rem; }
   .social { grid-area: social; margin: 1rem 0 0; }
-  .cv-btn { grid-area: cv; justify-self: start; margin-top: .3rem; }
   .section-nav {
     grid-area: nav;
     flex-direction: row; flex-wrap: wrap;
@@ -592,7 +593,7 @@ html[data-theme="dark"] .pub-type--preprint { background: rgba(251,191,36,.13); 
 }
 
 @media (max-width: 480px) {
-  .sidebar-inner { grid-template-columns: 1fr; grid-template-areas: "avatar" "identity" "social" "cv" "nav" "foot"; justify-items: start; text-align: left; }
+  .sidebar-inner { grid-template-columns: 1fr; grid-template-areas: "avatar" "identity" "social" "nav" "foot"; justify-items: start; text-align: left; }
   .section-title { font-size: 1.6rem; }
 }
 
