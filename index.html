@@ -175,6 +175,7 @@
 
         <h3 class="subhead">News</h3>
         <ul class="news-list">
+          <li><span class="news-year">2026</span> &ldquo;Sentry: Towards a Sound Dynamic Analysis Framework for Hybrid Android Applications&rdquo; accepted to <em>SECUTE&nbsp;2026</em>, co-located with <em>ASE&nbsp;2026</em> <a class="news-link" href="https://conf.researchr.org/details/ase-2026/secute-2026-papers/3/Sentry-Towards-a-Sound-Dynamic-Analysis-Framework-for-Hybrid-Android-Applications" target="_blank" rel="noopener noreferrer" aria-label="SECUTE 2026 paper details">↗</a></li>
           <li><span class="news-year">2026</span> &ldquo;PrevaRank: Ranking Plausible Patches by Historic Feature Frequencies&rdquo; accepted for an <em>ASE&nbsp;2026</em> Journal-First presentation <a class="news-link" href="https://conf.researchr.org/details/ase-2026/ase-2026-journal-first/6/PrevaRank-Ranking-Plausible-Patches-by-Historic-Feature-Frequencies" target="_blank" rel="noopener noreferrer" aria-label="ASE 2026 Journal First details">↗</a></li>
           <li><span class="news-year">2026</span> &ldquo;JetTyped: A Study of Cross-Language Type Bugs in Android&rsquo;s JavaScriptEngine&rdquo; accepted to <em>ISSRE&nbsp;2026</em></li>
           <li><span class="news-year">2026</span> Paper on ranking plausible patches by historic feature frequencies accepted in the <em>Journal of Systems and Software (JSS)</em></li>
@@ -364,13 +365,18 @@
           and software testing across mobile, multilingual, and concurrent systems.
         </p>
 
-        <!-- Selected Publications — populated from the flagship entries below -->
-        <div id="pub-selected-wrap" hidden>
-          <h3 class="subhead">Selected Publications</h3>
+        <!-- Selected / All tabs — the tab strip is revealed by script.js once Selected has entries -->
+        <div class="pub-tabs" role="tablist" aria-label="Publication views" hidden>
+          <button type="button" role="tab" id="pub-tab-selected" aria-controls="pub-panel-selected" aria-selected="true">Selected</button>
+          <button type="button" role="tab" id="pub-tab-all" aria-controls="pub-panel-all" aria-selected="false" tabindex="-1">All publications</button>
+        </div>
+
+        <!-- Selected Publications — populated from the flagship entries in the All panel -->
+        <div id="pub-panel-selected" class="pub-panel" role="tabpanel" aria-labelledby="pub-tab-selected" hidden>
           <ul class="pub-compact-list pub-selected-list"></ul>
         </div>
 
-        <h3 class="subhead">All Publications</h3>
+        <div id="pub-panel-all" class="pub-panel" role="tabpanel" aria-labelledby="pub-tab-all">
         <div class="pub-controls">
           <input id="pub-search" type="search" placeholder="Search title, author, or venue…" aria-label="Search publications">
           <select id="pub-year-filter" aria-label="Filter publications by year">
@@ -387,6 +393,15 @@
           <section class="pub-year-group">
             <h3 class="pub-year-heading">2026</h3>
             <ul class="pub-compact-list">
+              <li class="pub-item">
+                <div class="pub-title"><strong>Sentry: Towards a Sound Dynamic Analysis Framework for Hybrid Android Applications</strong></div>
+                <div class="pub-venue">SECUTE 2026, ASE 2026 Workshops</div>
+                <div class="pub-footer">
+                  <span class="pub-authors">Prakash, Jyoti; Yde, Mathias Ransgaard; Campusano, Miguel; <strong class="me">Tiwari, Abhishek</strong></span>
+                  <span class="pub-links"><a class="pub-link" href="https://conf.researchr.org/details/ase-2026/secute-2026-papers/3/Sentry-Towards-a-Sound-Dynamic-Analysis-Framework-for-Hybrid-Android-Applications" target="_blank" rel="noopener noreferrer">ASE</a></span>
+                </div>
+                <div class="pub-abstract">A dynamic analysis framework that combines native instrumentation with a page-level JavaScript probe to trace security-relevant behavior across the Android–WebView boundary in hybrid apps.</div>
+              </li>
               <li class="pub-item">
                 <div class="pub-title"><strong>PrevaRank: Ranking Plausible Patches by Historic Feature Frequencies</strong></div>
                 <div class="pub-venue">Journal of Systems and Software, Vol. 240, 112921 · also ASE 2026 Journal-First</div>
@@ -666,6 +681,7 @@
               </li>
             </ul>
           </section>
+        </div>
         </div>
       </section>
 

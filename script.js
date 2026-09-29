@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return ['Conference', 'conference'];
     };
     // Flagship venues that make up the curated "Selected Publications" list
+    // (workshops co-located with a flagship, e.g. "ASE 2026 Workshops", are excluded)
     const FLAGSHIP = /\b(icse|fse|esec|issta|ase|issre|tosem|fm|pldi|esorics)\b/;
     items.forEach(li => {
       const venueEl = li.querySelector('.pub-venue');
@@ -124,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const venueText = venueEl.textContent;
       const [label, kind] = classify(venueText);
       li.dataset.pubType = kind;
-      if (FLAGSHIP.test(venueText.toLowerCase())) li.dataset.featured = 'true';
+      if (kind !== 'workshop' && FLAGSHIP.test(venueText.toLowerCase())) li.dataset.featured = 'true';
       const tag = document.createElement('span');
       tag.className = `pub-type pub-type--${kind}`;
       tag.textContent = label;
@@ -133,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Build the Selected Publications list by cloning the flagship entries
     // (single source of truth stays the full list below)
-    const selectedWrap = document.getElementById('pub-selected-wrap');
     const selectedList = panel.querySelector('.pub-selected-list');
     const featured = items.filter(li => li.dataset.featured === 'true');
     if (selectedList && featured.length) {
@@ -142,7 +142,34 @@ document.addEventListener('DOMContentLoaded', () => {
         clone.removeAttribute('style');
         selectedList.appendChild(clone);
       });
-      if (selectedWrap) selectedWrap.hidden = false;
+    }
+
+    // Selected / All tabs — only shown when there is something to select;
+    // otherwise the All panel stays visible on its own.
+    const tabList = panel.querySelector('.pub-tabs');
+    const tabs = Array.from(panel.querySelectorAll('.pub-tabs [role="tab"]'));
+    const selectTab = (tab, { focus = false } = {}) => {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        const p = document.getElementById(t.getAttribute('aria-controls'));
+        if (p) p.hidden = !on;
+      });
+      if (focus) tab.focus();
+    };
+    if (tabList && tabs.length && featured.length) {
+      tabList.hidden = false;
+      selectTab(tabs[0]);
+      tabs.forEach((t, i) => {
+        t.addEventListener('click', () => selectTab(t));
+        t.addEventListener('keydown', e => {
+          const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+          if (step) { e.preventDefault(); selectTab(tabs[(i + step + tabs.length) % tabs.length], { focus: true }); }
+          else if (e.key === 'Home') { e.preventDefault(); selectTab(tabs[0], { focus: true }); }
+          else if (e.key === 'End') { e.preventDefault(); selectTab(tabs[tabs.length - 1], { focus: true }); }
+        });
+      });
     }
 
     // Populate year filter
@@ -218,8 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
           .some(li => li.style.display !== 'none');
         g.style.display = anyVisible ? '' : 'none';
       });
-      // Hide the curated Selected list while actively searching/filtering
-      if (selectedWrap && featured.length) selectedWrap.hidden = filtering;
       // Only surface the empty state when a filter is active and nothing matched
       showNoResults(filtering && visible === 0);
     };
