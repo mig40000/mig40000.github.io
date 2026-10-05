@@ -696,7 +696,10 @@ html[data-theme="dark"] .pub-type--preprint { background: rgba(251,191,36,.13); 
 @media print {
   .sidebar-foot, .section-nav, .theme-toggle, .back-to-top, .pub-controls, .skip-to-content { display: none !important; }
   .layout { display: block; }
-  .sidebar { border: none; }
+  .sidebar { position: static; height: auto; border: none; }
+  /* Print every section, not just the one currently shown on screen */
+  .section[hidden] { display: block !important; }
+  .section { animation: none !important; }
   body { background: #fff; color: #000; }
   .pub-abstract { max-height: none !important; opacity: 1 !important; }
   /* Print the full list only — Selected entries are duplicates of it */

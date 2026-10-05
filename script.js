@@ -4,18 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const yEl = document.getElementById('year');
   if (yEl) yEl.textContent = String(new Date().getFullYear());
 
-  /* ── Theme toggle (light / dark) ──────────────────────────── */
+  /* ── Theme toggle (light / dark) — initial theme is set inline in <head> ── */
   const root = document.documentElement;
   const themeToggle = document.getElementById('theme-toggle');
-  const stored = localStorage.getItem('site-theme');
-  const initial = stored || 'dark';            // dark is the default; light is opt-in
-  root.setAttribute('data-theme', initial);
 
   const syncToggleLabel = () => {
     const isDark = root.getAttribute('data-theme') === 'dark';
     const label = themeToggle?.querySelector('.theme-label');
     if (label) label.textContent = isDark ? 'Light mode' : 'Dark mode';
-    themeToggle?.setAttribute('aria-pressed', String(isDark));
   };
   syncToggleLabel();
 

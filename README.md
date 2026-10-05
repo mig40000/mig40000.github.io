@@ -1,8 +1,15 @@
-Top-tabs theme — wider content
-Files included:
-- index.html (top tabs, wider max-width 1200px)
-- styles.css (modern top-tabs theme)
-- script.js (tabs behavior + hash routing)
+# mig40000.github.io
 
-To deploy: create a GitHub Pages repo (YOURNAME.github.io), upload these files to root, enable Pages.
-Replace avatar image with local file in assets/ and update index.html if desired.
+Personal academic website of Abhishek Tiwari, served by GitHub Pages at
+https://mig40000.github.io/.
+
+Plain HTML, CSS, and JavaScript — no framework and no build step. Edit the files
+and push to `master`; GitHub Pages deploys automatically.
+
+- `index.html` — all content (About, Research, Team, Publications, Teaching, Service)
+- `styles.css` — styling, light/dark theme tokens
+- `script.js` — section navigation, theme toggle, news toggle, publication filters
+- `assets/img/` — avatar, team photo, social-preview card
+- `assets/papers/` — self-hosted paper PDFs
+
+To preview locally, open `index.html` in a browser.
