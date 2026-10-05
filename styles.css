@@ -425,6 +425,64 @@ abbr { text-decoration: underline dotted; cursor: help; }
 .project-objectives li { font-size: .85rem; margin: .25rem 0; }
 .project-link { font-size: .86rem; font-weight: 600; margin-top: auto; }
 
+/* ─── Team ───────────────────────────────────────────────────── */
+.team-banner { margin: 0 0 .6rem; }
+.team-banner img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.team-banner figcaption { margin: .6rem 0 1.8rem; font-size: .82rem; color: var(--faint); }
+
+.content .team-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+.content .team-member {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: .9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.team-initials {
+  display: grid; place-items: center;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: .8rem; font-weight: 700; letter-spacing: .03em;
+}
+.team-info h4 { font-size: 1rem; font-weight: 600; }
+.team-tag { font-weight: 500; color: var(--accent); }
+.content .team-info p { margin: 0; }
+.team-role { font-size: .88rem; color: var(--muted); line-height: 1.45; }
+.content .team-focus { margin-top: .15rem; font-size: .85rem; color: var(--faint); line-height: 1.45; }
+.team-link { font-size: .85rem; font-weight: 600; white-space: nowrap; }
+.content .team-join {
+  margin-top: 2rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  font-size: .94rem;
+  color: var(--muted);
+}
+.team-join strong { color: var(--text); }
+@media (max-width: 480px) {
+  .content .team-member { grid-template-columns: auto minmax(0, 1fr); }
+  .team-link { grid-column: 2; }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
 /* ─── Publications ──────────────────────────────────────────── */
 /* Selected / All publication tabs */
 .pub-tabs {
