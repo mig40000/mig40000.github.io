@@ -616,6 +616,29 @@ html[data-theme="dark"] .pub-type--preprint { background: rgba(251,191,36,.13); 
 .courses-table tbody tr:last-child td { border-bottom: none; }
 .courses-table tbody tr:hover td { background: var(--accent-soft); }
 
+/* Phones: show each course as a stacked card instead of a 5-column table */
+@media (max-width: 600px) {
+  .table-scroll { overflow: visible; border: none; border-radius: 0; }
+  .courses-table thead { display: none; }
+  .courses-table, .courses-table tbody, .courses-table tr, .courses-table td { display: block; }
+  .courses-table tr {
+    padding: .85rem 1rem;
+    margin-bottom: .7rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+  }
+  .courses-table td { padding: .1rem 0; border: none; font-size: .88rem; color: var(--muted); }
+  .courses-table td:first-child { margin-bottom: .3rem; font-size: .98rem; font-weight: 600; color: var(--text); }
+  .courses-table td[data-label]::before {
+    content: attr(data-label);
+    display: inline-block; min-width: 7rem;
+    font-size: .74rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--faint);
+  }
+  .courses-table tbody tr:hover td { background: none; }
+}
+
 /* two column blocks */
 .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem 2.5rem; }
 .two-col ul { margin-top: .3rem; }
@@ -651,7 +674,7 @@ html[data-theme="dark"] .pub-type--preprint { background: rgba(251,191,36,.13); 
 
 /* ─── Responsive ────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .layout { grid-template-columns: 1fr; }
+  .layout { grid-template-columns: minmax(0, 1fr); }  /* minmax(0,…) stops wide children (e.g. the courses table) from widening the page */
   .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
   .sidebar-inner {
     height: auto; overflow: visible;
