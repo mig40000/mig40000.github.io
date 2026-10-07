@@ -303,6 +303,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: inline; }
 .highlight { background: var(--surface); padding: 1rem 1.2rem; display: flex; flex-direction: column; gap: .4rem; }
 .highlight-label { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
 .highlight-value { font-size: .95rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+.highlight-note { font-size: .8rem; color: var(--accent); line-height: 1.4; }
 .lead { font-size: 1.18rem; line-height: 1.6; color: var(--text); margin: 0 0 1.2rem; }
 .content p { margin: 0 0 1rem; color: var(--text); }
 .content p a { text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent); }
